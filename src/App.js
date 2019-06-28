@@ -3,21 +3,32 @@ import Jumbatron from './Components/Jumbatron/Jumbatron'
 import './App.css';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
+const urls=[
+          `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`,
+          `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
+          ]
 
 class App extends Component{
   constructor(){
     super();
+    let data ={
+      'top_rated':null,
+     'popular':''
+    };
 
-    Promise.all([
-        fetch(`https://api.themoviedb.org/3/movie/latest?api_key=${api_key}&language=en-US`),
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`),
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`)
-      ]).then(([latest,top_rated,popular])=>{
-        console.log("latest: ",latest);
-        console.log("top_rated: ",top_rated.json());
-        console.log("popular: ",popular.json());
-      });
+    const promises = urls.map(url=>fetch(url));
+
+    Promise.all(promises).then(responses=>{
+      responses.forEach(response=>console.log(response.url))
+      return responses;
+    }).then(responses=>Promise.all(responses.map(r=>r.json())))
+    .then(users=>users.forEach(user=>
+      user.results.map((moviedetails,count)=>
+        console.log(moviedetails)
+        )
+      ));
     
+    console.log(data);
 
     this.state={
       name:''
