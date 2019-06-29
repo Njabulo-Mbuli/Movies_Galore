@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.movieCard{
+	opacity: 0.8;
+}
+
+.movieCard:hover{
+	opacity: 1;
+}

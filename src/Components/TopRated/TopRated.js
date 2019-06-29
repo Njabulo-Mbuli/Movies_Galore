@@ -5,20 +5,17 @@ import Card from '../Card/Card';
 
 
 const TopRated=({toprated})=>{
-  console.log(toprated[0]);
   
     return( 
     <div>
       <h2>Top Rated Movies</h2>
-      <div style={{display:'flex'}}>  
+      <div className="swiper-wrapper">  
       
         {
-
             toprated.map((movieDetails,i)=>{
-               return( <Card key={i}
-                      movieDetails={toprated[i]}/>)
-            }
-            )
+               return( <Card key={movieDetails.movie_id}
+                      movieDetails={movieDetails}/>)
+            })
         }
       </div>
     </div>
