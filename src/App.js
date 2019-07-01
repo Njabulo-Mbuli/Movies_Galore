@@ -25,20 +25,6 @@ class App extends Component{
          upcoming:[]
         };
 
-    // const promises = urls.map(url=>fetch(url));
-
-    // Promise.all(promises).then(responses=>{
-    //   responses.forEach(response=>console.log(response.url))
-    //   return responses;
-    // }).then(responses=>Promise.all(responses.map(r=>r.json())))
-    // .then(users=>users.forEach(us er=>
-    //   user.results.map((moviedetails,count)=>
-    //     console.log(moviedetails)
-    //     )
-    //   ));
-    
-    // console.log(data);
-
     fetch(urls[0])
         .then(result=>{
           return result.json();

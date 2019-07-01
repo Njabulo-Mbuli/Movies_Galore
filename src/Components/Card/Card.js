@@ -5,10 +5,8 @@ const Card = ({movieDetails}) =>{
 	console.log();
 
 	return(
-		<div className="grow pointer moviecard">
-		 {
-		 //I intentionaly sabotaged this link for the poster by taking out the "t" from "tmdb" to save data  when testing
-		}
+		<div className="grow pointer moviecard" onClick={console.log("Click click")}>
+	
 		{console.log(movieDetails)}
 		<div className="tc bg-light-green br3 ma2 dib bw2 shadow-5 movieCardContent" style={{backgroundImage:`url(https://image.tmdb.org/t/p/w185/${movieDetails.poster_path})`,overflow:'hidden',backgroundSize:'contain'}}>
 					<div className="rating">
