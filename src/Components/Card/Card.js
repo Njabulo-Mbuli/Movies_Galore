@@ -2,13 +2,10 @@ import React from 'react';
 import './CardStyling.css';
 
 const Card = ({movieDetails}) =>{
-	console.log();
-
 	return(
-		<div className="grow pointer moviecard" onClick={console.log("Click click")}>
+		<div className="grow pointer moviecard" >
 	
-		{console.log(movieDetails)}
-		<div className="tc bg-light-green br3 ma2 dib bw2 shadow-5 movieCardContent" style={{backgroundImage:`url(https://image.tmdb.org/t/p/w185/${movieDetails.poster_path})`,overflow:'hidden',backgroundSize:'contain'}}>
+		<div className="tc bg-light-green br3 ma2 dib bw2 shadow-5 movieCardContent" style={{backgroundImage:`url(https://image.mdb.org/t/p/w185/${movieDetails.poster_path})`,overflow:'hidden',backgroundSize:'contain'}}>
 					<div className="rating">
 		<div>
             <svg className="rating__icon"  style={{width:'80', height:'30'}}><path d="M57.5,12.5h-8.5l6.8,5-2.6,8.1,6.8-5,6.8,5-2.6-8.1,6.8-5h-8.5l-2.6-8.1z" fill="#ffd83d" stroke="#eac328"/></svg>

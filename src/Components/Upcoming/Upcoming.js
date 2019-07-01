@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
@@ -30,9 +31,8 @@ const Upcoming= ({upcoming})=>{
             responsive={responsive}>
          {
             upcoming.map((movieDetails,i)=>{
-               return(<div onDragStart={handleOnDragStart}>
-                          <Card key={movieDetails.id}
-                          movieDetails={movieDetails}/>
+               return(<div onDragStart={handleOnDragStart} key={movieDetails.id} onClick={console.log("We were clicked")}>
+                          <Card movieDetails={movieDetails}/>
                       </div>);
             })
         }

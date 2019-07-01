@@ -31,9 +31,8 @@ const Popular= ({popular})=>{
             responsive={responsive}>
          {
             popular.map((movieDetails,i)=>{
-               return(<div onDragStart={handleOnDragStart}>
-                          <Card key={movieDetails.id}
-                          movieDetails={movieDetails}/>
+               return(<div onDragStart={handleOnDragStart} key={movieDetails.id}>
+                          <Card movieDetails={movieDetails}/>
                       </div>);
             })
         }
