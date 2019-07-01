@@ -37,9 +37,6 @@ code {
     flex-direction: column;
     justify-content: space-around;
 }
-.centered_items{
-  justify-self:center;
-}
 .container {
   width:100%;
   height:8em;
