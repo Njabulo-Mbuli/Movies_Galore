@@ -26,10 +26,9 @@ submit() {
       .catch(error => console.log(error));
 
       console.log("This is what the search returned: ",this.state.results);
-      window.location.href="../SearchResults/SearchResults.js";
       }
       else console.log("Enter a search term");
-      
+// window.location.href="https://www.google.com";
   	}
 
 searchChange(event){
