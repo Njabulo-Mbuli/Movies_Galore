@@ -1,14 +1,21 @@
 import React from 'react';
 
-const Jumbatron = (poster) =>{
-	console.log(poster.poster);
-	let get=poster.poster;
+const Jumbatron = ({backdrop}) =>{
+	console.log("Looking for backdtop ",backdrop);
+	let background=`https://image.tmdb.org/t/p/original/${backdrop}`;
 	return(
-		<div className="jumbatron" style={{background:'rgba(45,12,45,1)',width:'100%',height:'100%'}}>
-			
-			<h1>Hello from Jumbatron</h1>
+		<div className="jumbatron" style={{backgroundImage:`url(${background})`, backgroundRepeat:"no-repeat",backgroundPosition:"center",backgroundSize:"cover"}}>
+			<div className="jumbatron_container">
+			<div className="container tc">
+			  <div className="neon">Movies </div>
+			  <div className="flux">Galore </div>
+			</div>
 
-			<img src={`https://image.tmdb.org/t/p/w185/${get}`}/>
+			<div className="center_items">
+				<h4>Search for your favourite movies <br/> using the TMDB database</h4>
+				<input placeholder="Find a movie..."/>
+			</div>
+			</div>
 		</div>
 		);
 }
