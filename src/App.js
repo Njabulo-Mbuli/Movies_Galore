@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import TopRated from './Components/TopRated/TopRated';
 import Popular from './Components/Popular/Popular'
 import NowPlaying from './Components/NowPlaying/NowPlaying';
 import Upcoming from './Components/Upcoming/Upcoming';
-// import API_KEY from 'config.js'
 import Jumbatron from './Components/Jumbatron/Jumbatron';
 import './App.css';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
+
 const urls=[
           `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`,
           `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`,
@@ -25,6 +26,9 @@ class App extends Component{
          upcoming:[]
         };
 
+    //consider refactoring the code below to eliminate the repetition
+    //of the fetch. Put it in a function or something.
+    //dont forget about window.location.href
     fetch(urls[0])
         .then(result=>{
           return result.json();
@@ -49,6 +53,7 @@ class App extends Component{
         }).then(dat=>{
             this.setState({upcoming : dat.results})
       })  
+  
   }
 
   render(){
@@ -56,8 +61,6 @@ class App extends Component{
    let backdrop='';
     if(movieDetails!==undefined)
     backdrop=movieDetails.backdrop_path;
-   
-   console.log("Printing movie details for backdtop:",movieDetails);
 
   return (
     <div className="App">

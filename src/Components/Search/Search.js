@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
+import { Link,Switch,Route,BrowserRouter as Router,Redirect } from 'react-router-dom';
+import SearchResults from '../SearchResults/SearchResults';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
 let search_Term='';
 class Search extends Component{
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       results:null
     };
 
-    console.log("this is the state",this.state);
   }
 
 submit() {
@@ -21,12 +22,9 @@ submit() {
       .then(response => {
         return response.json()
       }).then(data => {
-      	console.log("This is the search results: ",data.results);
       })
       .catch(error => console.log(error));
-
-      console.log("This is what the search returned: ",this.state.results);
-      window.location.href="../SearchResults/SearchResults.js";
+      // window.location.href="../SearchResults/SearchResults.js";
       }
       else console.log("Enter a search term");
       
@@ -44,10 +42,19 @@ performSearch(searchTerm){
  			<div>
 				<h4>Search for your favourite movies <br/> using the TMDB database</h4>
 				<input id="search_Term" type="text" className="pa1 b--green bg-lightest-blue" onChange={this.searchChange} placeholder="Find a movie..."/>
-				<button className="pa1 b--green bg-lightest-blue" type="Submit" onClick={this.submit.bind(this)}>
-						<strong>Search</strong>
-				</button>
+  		
+        <Link to={`/SearchResults/${search_Term}`}>	
+          <button className="pa1 b--green bg-lightest-blue" type="Submit" onClick={this.submit.bind(this)}>
+  						<strong>Search</strong>
+  				</button>
+        </Link>
+
+      <Router>
+        <Route exact path="/SearchResults/:search_Term" componponent={SearchResults}/>
+        <Redirect exact to="/"/>
+      </Router>
 			</div>
+
  		);
  }
 

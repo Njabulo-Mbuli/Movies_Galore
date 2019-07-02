@@ -2,7 +2,7 @@ import React from 'react';
 import Search from '../Search/Search';
 
 const Jumbatron = ({backdrop}) =>{
-	console.log("Looking for backdtop ",backdrop);
+
 	let background=`https://image.mdb.org/t/p/original/${backdrop}`;
 
 	return(
