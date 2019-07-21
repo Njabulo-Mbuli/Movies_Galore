@@ -24,6 +24,7 @@ const Popular= ({popular})=>{
     return( 
     <div>
       <h2>Popular Movies</h2>
+        <a id="top"></a>
         <AliceCarousel mouseDragEnabled buttonsDisabled={true}
             autoPlayInterval={2000}
         autoPlayDirection="ltr"

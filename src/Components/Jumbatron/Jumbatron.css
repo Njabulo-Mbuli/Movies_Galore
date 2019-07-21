@@ -1,0 +1,37 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body { background: @bg;}
+a { color: white; text-decoration: none; }
+
+.arrow {
+  text-align: center;
+  margin: 8% 0;
+}
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+.arrow-down {
+  width: 10px; 
+  height: 1px; 
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  
+  border-top: 30px solid white;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
