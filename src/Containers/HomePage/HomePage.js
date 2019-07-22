@@ -52,10 +52,13 @@ class HomePage extends Component{
         }).then(dat=>{
             this.setState({upcoming : dat.results})
       })  
-  
   }
 
   render(){
+       const showMovie=(movieDetails)=>{
+    console.log("showing movie: ",movieDetails);
+  }
+
     let movieDetails=this.state.upcoming[1];
    let backdrop='';
     if(movieDetails!==undefined)
@@ -63,11 +66,21 @@ class HomePage extends Component{
 
   return (
     <div className="HomePage">
-      <Jumbatron backdrop={backdrop}/>
-      <Popular popular={this.state.popular_list}/>
-      <NowPlaying nowPlaying={this.state.now_playing_list}/>
-      <Upcoming upcoming={this.state.upcoming}/>
-      <TopRated toprated={this.state.top_rated_list}/>
+      <Jumbatron
+          backdrop={backdrop}
+          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
+      <Popular 
+          popular={this.state.popular_list}
+          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
+      <NowPlaying 
+          nowPlaying={this.state.now_playing_list}
+          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
+      <Upcoming 
+          upcoming={this.state.upcoming}
+          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
+      <TopRated 
+          toprated={this.state.top_rated_list}
+          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
     </div>
   );
 }

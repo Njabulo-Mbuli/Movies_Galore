@@ -6,7 +6,8 @@ import './Toolbar.css';
 class Toolbar extends Component{
 	state={
 			prevScrollPos:window.pageYOffset,
-			visible:false
+			visible:false,
+			searchTerm:''
 		}
 
 
@@ -38,12 +39,24 @@ class Toolbar extends Component{
 
   	searchHandler = (event) =>{
   		event.preventDefault();
+  		let searchValue=event.target.value;
+  		this.setState(()=>{
+  			return{
+  				...this.state,
+  				searchTerm:searchValue
+  			}
+  		});
+  		console.log("Almost there ma nig: ",this.state.searchTerm);
   	}
 
+  	findMovie=(event)=>{
+  		event.preventDefault();
+  		console.log("We are in the find movie", this.state.searchTerm);
+  	}
 	render(){
-		let hideClass = this.state.visible?"Toolbar-hidden":"Toolbar-shown";
+		let toolBarToggle = this.state.visible?"Toolbar-hidden":"Toolbar-shown";
 		return(
-			<header className={`Toolbar ${hideClass}`}>
+			<header className={`Toolbar ${toolBarToggle}`}>
 			<nav>
 				<ul className="navigation_items">
 					<li>Home</li>
@@ -51,7 +64,7 @@ class Toolbar extends Component{
 				</ul>
 			</nav>
 			<Logo/>
-			<SearchBox searchHandler={(event)=>this.searchHandler(event)}/>
+			<SearchBox searchHandler={(event)=>this.searchHandler(event)} findMovie={(event)=>this.findMovie(event)}/>
 			</header>
 		);
 	}

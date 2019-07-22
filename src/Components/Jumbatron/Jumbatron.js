@@ -13,10 +13,8 @@ const Jumbatron = ({backdrop}) =>{
 			  <div className="neon">Movie</div>
 			  <div className="flux">Club</div>
 			</div>
-			<h3>Need something to watch...?</h3>
-
-				<a class="fa fa-arrow-down fa-2x" href="#top" style={{display:"flex",justifyContent:"center"}}>
-					<div class="arrow-down bounce">
+				<a  href="#top" style={{display:"flex",justifyContent:"center"}}>
+					<div className="arrow-down bounce">
 					</div>
 				</a>
 			</div>

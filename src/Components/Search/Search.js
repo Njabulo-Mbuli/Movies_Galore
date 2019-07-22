@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link,Switch,Route,BrowserRouter as Router,Redirect } from 'react-router-dom';
-import SearchResults from '../SearchResults/SearchResults';
+import SearchResults from '../../Containers/SearchResults/SearchResults';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
 let search_Term='';

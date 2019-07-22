@@ -4,7 +4,7 @@
 	position: fixed;
 	align-items: center;
 	z-index: 200;
-	height: 70px;
+	height: 3.5em;
 	background-color: #34e89e;
 	width: 100%;
 	padding: 0.8em;
@@ -17,13 +17,17 @@
 	transform: translateY(-10em);
 }
 .Toolbar-shown{
-	transform: translateY(-60px);
+	transform: translateY(0);
 }
 .navigation_items{
 	list-style: none;
 	display: flex;
 	margin:0;
 	padding:0;
+}
+.navigation_items li{
+	padding:0.7em;
+	font-weight: bold;
 }
 img{
 	height:3.5em;

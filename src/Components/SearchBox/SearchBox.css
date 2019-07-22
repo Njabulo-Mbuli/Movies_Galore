@@ -1,5 +1,5 @@
 
-form {
+.form {
   outline: 0;
   float: left;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -8,7 +8,7 @@ form {
   border-radius: 4px;
 }
 
-form > .textbox {
+.form > .textbox {
   outline: 0;
   height: 42px;
   width: 244px;
@@ -22,18 +22,19 @@ form > .textbox {
   border-radius: 4px 0 0 4px;
 }
 
-form > .textbox:focus {
+.form > .textbox:focus {
   outline: 0;
   background-color: #FFF;
 }
 
-form > .button {
+.form > .button {
   outline: 0;
   background: none;
   background-color: rgba(38, 50, 56, 0.8);
   float: left;
   height: 42px;
   width: 42px;
+  box-sizing: border-box;
   text-align: center;
   line-height: 42px;
   border: 0;
@@ -48,7 +49,11 @@ form > .button {
   border-radius: 0 4px 4px 0;
 }
 
-form > .button:hover {
+.SearcH{
+  
+}
+
+.form > .button:hover {
   cursor: pointer;
   background-color: rgba(0, 150, 136, 0.8);
 }

@@ -5,7 +5,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 import Card from '../Card/Card';
 
-const Upcoming= ({upcoming})=>{
+const Upcoming= ({upcoming,showMovie})=>{
   
   const handleOnDragStart=e=>e.preventDefault()
   
@@ -31,8 +31,10 @@ const Upcoming= ({upcoming})=>{
             responsive={responsive}>
          {
             upcoming.map((movieDetails,i)=>{
-               return(<div onDragStart={handleOnDragStart} key={movieDetails.id} onClick={console.log("We were clicked")}>
-                          <Card movieDetails={movieDetails}/>
+               return(<div onDragStart={handleOnDragStart} key={movieDetails.id} onClick={console.log("We werer clicked...")}>
+                          <Card 
+                              movieDetails={movieDetails}
+                              showMovie={(movieDetail)=>showMovie(movieDetail)}/>
                       </div>);
             })
         }

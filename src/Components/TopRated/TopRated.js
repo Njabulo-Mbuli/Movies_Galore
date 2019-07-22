@@ -5,7 +5,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 
 import Card from '../Card/Card';
 
-const TopRated= ({toprated})=>{
+const TopRated= ({toprated,showMovie})=>{
   const handleOnDragStart=e=>e.preventDefault()
   let responsive={0: { items: 2 },600:{items:4} ,1024: { items: 6 }, };
 
@@ -21,7 +21,9 @@ const TopRated= ({toprated})=>{
          {
             toprated.map((movieDetails,i)=>{
                return(<div onDragStart={handleOnDragStart} key={movieDetails.id}>
-                          <Card movieDetails={movieDetails}/>
+                          <Card 
+                              movieDetails={movieDetails}
+                              showMovie={(movieDetail)=>showMovie(movieDetail)}/>
                       </div>);
             })
         }

@@ -4,7 +4,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 import Card from '../Card/Card';
 
-const Popular= ({popular})=>{
+const Popular= ({popular,showMovie})=>{
   
   const handleOnDragStart=e=>e.preventDefault()
   
@@ -33,7 +33,9 @@ const Popular= ({popular})=>{
          {
             popular.map((movieDetails,i)=>{
                return(<div onDragStart={handleOnDragStart} key={movieDetails.id}>
-                          <Card movieDetails={movieDetails}/>
+                          <Card 
+                              movieDetails={movieDetails}
+                              showMovie={(movieDetail)=>showMovie(movieDetail)}/>
                       </div>);
             })
         }

@@ -1,13 +1,16 @@
 import React from 'react';
 import './SearchBox.css';
+import searchLogo from '../../assets/search.svg';
 
 const SearchBox = (props) =>{
 
 	return(
-		<form method="post">
-		  <input type="text" class="textbox" placeholder="Search"/>
-		  <input title="Search" value="?" type="submit" class="button" onClick={props.searchHandler}/>
-		</form>
+		<div className="form">
+		  <input type="text" className="textbox" placeholder="Find a movie..." onChange={props.searchHandler}/>
+		  <div title="Search" type="image" style={{width:"75px",display:"flex",alignItems:"center",justifyContent:"center"}} className="button" onClick={props.findMovie}>
+		  	Search
+		  </div>
+		</div>
 	);
 }
 
