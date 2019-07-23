@@ -32,7 +32,9 @@ const NowPlaying= ({nowPlaying,showMovie})=>{
             nowPlaying.map((movieDetails,i)=>{
 
                return(<div onDragStart={handleOnDragStart} key={movieDetails.id}>
-                          <Card movieDetails={movieDetails} showMovie={(movieDetail)=>showMovie(movieDetail)}/>
+                          <Card 
+                              movieDetails={movieDetails} 
+                              showMovie={(movieDetail)=>showMovie(movieDetail)}/>
                       </div>);
             })
         }

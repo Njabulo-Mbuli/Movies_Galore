@@ -2,6 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
+.jumbatron{
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+
 body { background: @bg;}
 a { color: white; text-decoration: none; }
 

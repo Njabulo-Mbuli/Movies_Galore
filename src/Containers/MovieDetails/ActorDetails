@@ -1,0 +1,16 @@
+import React from 'react';
+
+class ActorDetails extends Component{
+	componentDidMount(){
+		console.log("Hello from actor details");
+	}
+	render(){
+		return(
+			<div>
+				
+				<p>Show actor details here...</p>
+			</div>
+		);
+	}
+}
+export default ActorDetails;

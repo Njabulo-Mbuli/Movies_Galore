@@ -4,6 +4,7 @@ import Popular from '../../Components/Popular/Popular'
 import NowPlaying from '../../Components/NowPlaying/NowPlaying';
 import Upcoming from '../../Components/Upcoming/Upcoming';
 import Jumbatron from '../../Components/Jumbatron/Jumbatron';
+import Spinner from '../../Components/Spinner/Spinner';
 import './HomePage.css';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
@@ -54,34 +55,45 @@ class HomePage extends Component{
       })  
   }
 
-  render(){
-       const showMovie=(movieDetails)=>{
-    console.log("showing movie: ",movieDetails);
+   showMovieHandler = (movieDetails) =>{
+    
+    this.props.history.push({
+      pathname:'/movie_details',
+      search:`?id=${movieDetails.id}`
+    });
   }
 
+  render(){
+   
+    let display=<div style={{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>
     let movieDetails=this.state.upcoming[1];
    let backdrop='';
-    if(movieDetails!==undefined)
-    backdrop=movieDetails.backdrop_path;
+    if(movieDetails){
+      backdrop=movieDetails.backdrop_path;
+      display= (<div className="HomePage">
+                    <Jumbatron
+                        backdrop={backdrop}
+                        showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>
+                    <Popular 
+                        popular={this.state.popular_list}
+                        showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>
+                    <NowPlaying 
+                        nowPlaying={this.state.now_playing_list}
+                        showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>
+                    <Upcoming 
+                        upcoming={this.state.upcoming}
+                        showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>
+                    <TopRated 
+                        toprated={this.state.top_rated_list}
+                        showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>
+                </div>)
+    }
+
 
   return (
-    <div className="HomePage">
-      <Jumbatron
-          backdrop={backdrop}
-          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
-      <Popular 
-          popular={this.state.popular_list}
-          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
-      <NowPlaying 
-          nowPlaying={this.state.now_playing_list}
-          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
-      <Upcoming 
-          upcoming={this.state.upcoming}
-          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
-      <TopRated 
-          toprated={this.state.top_rated_list}
-          showMovie={(movieDetails)=>showMovie(movieDetails)}/>
-    </div>
+    <React.Fragment >
+        {display}
+    </React.Fragment>
   );
 }
 }

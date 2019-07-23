@@ -1,4 +1,3 @@
-
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -13,21 +12,22 @@ const TopRated= ({toprated,showMovie})=>{
     <div>
       <h2>Top Rated Movies</h2>
         <AliceCarousel mouseDragEnabled buttonsDisabled={true}
-            itemsInSlide={5}
             autoPlayInterval={2000}
         autoPlayDirection="rtl"
         autoPlay={true}
             responsive={responsive}>
          {
+
             toprated.map((movieDetails,i)=>{
                return(<div onDragStart={handleOnDragStart} key={movieDetails.id}>
                           <Card 
                               movieDetails={movieDetails}
                               showMovie={(movieDetail)=>showMovie(movieDetail)}/>
-                      </div>);
+                      </div>)
             })
         }
         </AliceCarousel>
+        
     </div>
     )
   }

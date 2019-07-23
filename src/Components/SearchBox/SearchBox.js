@@ -1,6 +1,5 @@
 import React from 'react';
 import './SearchBox.css';
-import searchLogo from '../../assets/search.svg';
 
 const SearchBox = (props) =>{
 

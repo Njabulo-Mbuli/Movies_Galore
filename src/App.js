@@ -3,6 +3,7 @@ import {Route,Switch} from 'react-router-dom';
 import HomePage from './Containers/HomePage/HomePage';
 import Layout from './Containers/Layout/Layout';
 import SearchResults from './Containers/SearchResults/SearchResults';
+import MovieDetails from './Containers/MovieDetails/MovieDetails';
 
 class App extends Component{
 
@@ -10,8 +11,9 @@ class App extends Component{
     return(
         <Layout>
           <Switch>
-            <Route to="/" exact component={HomePage}/>
-            <Route to="/search_results" exact componet={SearchResults}/>
+            <Route path="/" exact component={HomePage}/>
+            <Route path="/movie_details" component={MovieDetails}/>
+            <Route path="/search_results" component={SearchResults}/>
           </Switch>
         </Layout>
       );

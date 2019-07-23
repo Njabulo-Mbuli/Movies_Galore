@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter,Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import SearchBox from '../SearchBox/SearchBox';
 import './Toolbar.css';
@@ -16,11 +17,6 @@ class Toolbar extends Component{
     window.addEventListener("scroll", this.handleScroll);
   }
 
-  // Remove the event listener when the component is unmount.
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
-
   // Hide or show the menu.
   handleScroll = () => {
     const { prevScrollpos } = this.state;
@@ -28,7 +24,7 @@ class Toolbar extends Component{
     const currentScrollPos = window.pageYOffset;
 
     let visible=this.state.visible;
-    if(currentScrollPos>300)
+    if(currentScrollPos>300||currentScrollPos===0)
      visible = prevScrollpos < currentScrollPos;
 
     this.setState({
@@ -46,12 +42,19 @@ class Toolbar extends Component{
   				searchTerm:searchValue
   			}
   		});
-  		console.log("Almost there ma nig: ",this.state.searchTerm);
   	}
 
   	findMovie=(event)=>{
   		event.preventDefault();
-  		console.log("We are in the find movie", this.state.searchTerm);
+  		if(this.state.searchTerm){
+  			this.props.history.push({
+	      pathname:'/search_results',
+	      search:`?search=${this.state.searchTerm}`
+	    });
+  		}
+  		else{
+  			window.alert("Please enter a term to search for...");
+  		}
   	}
 	render(){
 		let toolBarToggle = this.state.visible?"Toolbar-hidden":"Toolbar-shown";
@@ -59,7 +62,7 @@ class Toolbar extends Component{
 			<header className={`Toolbar ${toolBarToggle}`}>
 			<nav>
 				<ul className="navigation_items">
-					<li>Home</li>
+					<li><Link to="/">Home</Link></li>
 					<li><a href="http://www.njabulombuli.co.za" target="_blank">My Website</a></li>
 				</ul>
 			</nav>
@@ -70,4 +73,4 @@ class Toolbar extends Component{
 	}
 }
 
-export default Toolbar;
+export default withRouter(Toolbar);

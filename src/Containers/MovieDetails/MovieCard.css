@@ -1,0 +1,20 @@
+.movieCard{
+	 width:10.8em;
+  height:16.2em;
+  font-size:0.7em;
+  min-width:110px;
+  background-size: auto;
+  	background-repeat:repeat;
+	background-position:center;
+}
+.Container{
+	min-width:70%;
+	margin:0.8em auto;
+}
+
+@media(max-width:450px){
+	.Container{
+		min-width:95%;]
+		margin:0.3em auto;
+	}
+}

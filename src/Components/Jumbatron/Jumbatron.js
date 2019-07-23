@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from '../Search/Search';
 import './Jumbatron.css';
 
 const Jumbatron = ({backdrop}) =>{
@@ -7,7 +6,7 @@ const Jumbatron = ({backdrop}) =>{
 	let background=`https://image.tmdb.org/t/p/original/${backdrop}`;
 
 	return(
-		<div className="jumbatron" style={{backgroundImage:`url(${background})`, backgroundRepeat:"no-repeat",backgroundPosition:"center",backgroundSize:"cover"}}>
+		<div className="jumbatron" style={{backgroundImage:`url(${background})`}}>
 			<div className="jumbatron_container">
 			<div className="container tc">
 			  <div className="neon">Movie</div>

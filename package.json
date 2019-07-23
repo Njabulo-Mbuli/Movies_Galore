@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.10.17",
     "@glidejs/glide": "^3.3.0",
     "nodejs": "0.0.0",
     "react": "^16.8.6",

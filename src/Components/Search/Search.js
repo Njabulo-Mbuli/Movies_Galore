@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Link,Switch,Route,BrowserRouter as Router,Redirect } from 'react-router-dom';
-import SearchResults from '../../Containers/SearchResults/SearchResults';
+import { Link} from 'react-router-dom';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
 let search_Term='';
@@ -15,7 +14,6 @@ class Search extends Component{
   }
 
 submit() {
-	console.log("Printing from the submit: ",search_Term);
 	if(search_Term.length>1){	
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${search_Term}&page=1&include_adult=false`;
    	fetch(url)
@@ -49,10 +47,6 @@ performSearch(searchTerm){
   				</button>
         </Link>
 
-      <Router>
-        <Route exact path="/SearchResults/:search_Term" componponent={SearchResults}/>
-        <Redirect exact to="/"/>
-      </Router>
 			</div>
 
  		);
