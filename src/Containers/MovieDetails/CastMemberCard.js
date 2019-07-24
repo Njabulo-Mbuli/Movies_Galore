@@ -7,7 +7,7 @@ const CastMemberCard = (props) =>{
 			onClick={()=>props.showActorDetails(props.id)} 
 			className="tc bg-light-green br3 ma2 dib bw2 shadow-5 grow"
 			key={props.id}
-			style={{width:"140px",textAlign:"center",color:"black"}}>
+			style={{width:"140px",textAlign:"center",color:"black",borderRadius:"5px"}}>
 			<div 
 				className="castCard"
 				style={{margin:"0 auto",width:"140px",heigh:"150px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${props.profile_path})`}}>

@@ -8,6 +8,8 @@ import Cast from './Cast';
 const api_key='c775303404fc7d314a5190e0708c61bf';
 const url=`https://api.themoviedb.org/3/movie/`;
 const SPINNER =<div style={{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>;
+let actorDetails
+
 class MovieDetails extends Component{
 	
 	state={
@@ -18,18 +20,18 @@ class MovieDetails extends Component{
 		actorId:null
 	}
 
+	//When the movie details component mounts it then fetches the data that
+	//it needs to display on the screen
 	componentDidMount(){
 		const query = new URLSearchParams(this.props.location.search);
-		const ingredients={};
+		
 		for(let param of query.entries()){
 			if(param[0]==="id"){
-				console.log("[URL]: "+url+`${this.state.movieID}/api_key=${api_key}&language=en-US`);
 				fetch(url+`${param[1]}?api_key=${api_key}&language=en-US`)
 			        .then(result=>{
 			           return result.json();
 			        }).then(result=>{
 			        	this.setState(()=>{
-			        		console.log(result);
 			        		return{
 			        			...this.state,
 			        			MovieDetails:result
@@ -59,7 +61,8 @@ class MovieDetails extends Component{
 			showActor:!this.state.showActor,
 			actorId:id
 		});
-
+		//Fetching the actor's details that need to be displayed for the modal that drops down
+		//when someone clicks the icon of a single cast member in the movie details page
 		fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${api_key}&language=en-US`)
 			.then(result=>{
 				return result.json()
@@ -71,16 +74,23 @@ class MovieDetails extends Component{
 			})
 	}
 
+	//This is for toggling the Modal that shows the cast member's details
 	toggleModalHandler=()=>{
 		this.setState({
-			showActor:!this.state.showActor,
+			...this.state,
+			showActor:!this.state.showActor
+		})
+		setTimeout(()=>{this.setState({
 			actorDetails:null
-		});
+		})},500);
 	}
 	render(){
 
 		let display=SPINNER;
-		let actorDetails=SPINNER;
+		
+		if(this.state.showActor){
+			actorDetails=SPINNER;
+		}
 
 		if(this.state.showActor&&this.state.actorDetails){
 			actorDetails=<div>
@@ -93,11 +103,9 @@ class MovieDetails extends Component{
 								</div>
 							</div>
 							<h2 style={{padding:"0",margin:"0"}}>Biography:</h2>
-							<p style={{maxHeight:"150px",overflow:"scroll"}}>{this.state.actorDetails.biography}</p>
+							<p style={{maxHeight:"150px",overflow:"auto"}}>{this.state.actorDetails.biography}</p>
 							<button className="f6 link dim ba bw1 ph3 pv2 mb2 dib black" onClick={this.toggleModalHandler}>Close</button>
 						</div>
-
-			console.log("[ACTOR_DETAILS]",this.state)
 		}
 
 		if(this.state.MovieDetails){

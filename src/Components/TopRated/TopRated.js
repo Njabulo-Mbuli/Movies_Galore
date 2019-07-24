@@ -6,15 +6,15 @@ import Card from '../Card/Card';
 
 const TopRated= ({toprated,showMovie})=>{
   const handleOnDragStart=e=>e.preventDefault()
-  let responsive={0: { items: 2 },600:{items:4} ,1024: { items: 6 }, };
+  let responsive={0: { items: 2 },600:{items:4} ,1024: { items:7 }, };
 
     return( 
-    <div>
+    <div className="TopRated">
       <h2>Top Rated Movies</h2>
         <AliceCarousel mouseDragEnabled buttonsDisabled={true}
             autoPlayInterval={2000}
         autoPlayDirection="rtl"
-        autoPlay={true}
+        autoPlay={false}
             responsive={responsive}>
          {
 
@@ -27,7 +27,6 @@ const TopRated= ({toprated,showMovie})=>{
             })
         }
         </AliceCarousel>
-        
     </div>
     )
   }

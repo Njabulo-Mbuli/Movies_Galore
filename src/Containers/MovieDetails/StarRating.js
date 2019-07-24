@@ -2,7 +2,9 @@ import React,{Component} from 'react';
 import filled_star from '../../assets/star-filled.png';
 import unfilled_star from '../../assets/star-unfilled.png';
 
-class starrating extends Component{
+//This class returns a the star ratings for the Movie details page.
+//Its 5 "star images" to visualise the ratings the movie received.
+class StarRating extends Component{
 	
 	render(){
 		let display=<p style={{color:"grey"}}><em>No ratings found...</em></p>
@@ -14,17 +16,17 @@ class starrating extends Component{
 			while(counter>0){
 
 				if(rating>0){
-					display.push(<img style={{height:"14px",width:"14px"}} alt="filed_star" src={filled_star}/>);
+					display.push(<img key={counter} style={{height:"14px",width:"14px"}} alt="filed_star" src={filled_star}/>);
 					rating--;
 				}
 				else{
-					display.push(<img style={{height:"14px",width:"14px"}} alt="empty star" src={unfilled_star}/>)
+					display.push(<img key={counter} style={{height:"14px",width:"14px"}} alt="empty star" src={unfilled_star}/>)
 					rating--;
 				}
 				counter--;
 			}
 
-			display.push(<p style={{margin:"0",padding:"0"}}>({this.props.vote_count})</p>)
+			display.push(<p key={Math.random()} style={{margin:"0",padding:"0"}}>({this.props.vote_count})</p>)
 		
 		}
 		
@@ -37,4 +39,4 @@ class starrating extends Component{
 	}
 }
 
-export default starrating;
+export default StarRating;

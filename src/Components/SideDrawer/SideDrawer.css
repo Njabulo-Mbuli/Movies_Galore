@@ -1,0 +1,51 @@
+.DrawerToggle {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.DrawerToggle div {
+    width: 90%;
+    height: 3px;
+    background-color: white;
+}
+
+@media (min-width: 500px) {
+    .DrawerToggle {
+        display: none;
+    }
+}
+.SideDrawer{
+    position: fixed;
+    min-width: 280px;
+    max-width: 80%;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index: 600;
+    background-color: #34e89e;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+    -webkit-box-shadow: 6px 4px 23px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 4px 23px 0px rgba(0,0,0,0.75);
+    box-shadow: 6px 4px 23px 0px rgba(0,0,0,0.75);
+}
+
+@media(min-width: 670px){
+    .SideDrawer{
+        display: none;
+    }
+}
+.Open{
+    transform:translateX(0);
+}
+.Closed{
+    transform:translateX(-130%); 
+}

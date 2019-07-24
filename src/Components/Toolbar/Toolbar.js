@@ -11,13 +11,10 @@ class Toolbar extends Component{
 			searchTerm:''
 		}
 
-
-	  // Adds an event listener when the component is mount.
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
 
-  // Hide or show the menu.
   handleScroll = () => {
     const { prevScrollpos } = this.state;
 
@@ -60,14 +57,22 @@ class Toolbar extends Component{
 		let toolBarToggle = this.state.visible?"Toolbar-hidden":"Toolbar-shown";
 		return(
 			<header className={`Toolbar ${toolBarToggle}`}>
-			<nav>
-				<ul className="navigation_items">
-					<li><Link to="/">Home</Link></li>
-					<li><a href="http://www.njabulombuli.co.za" target="_blank">My Website</a></li>
-				</ul>
-			</nav>
-			<Logo/>
-			<SearchBox searchHandler={(event)=>this.searchHandler(event)} findMovie={(event)=>this.findMovie(event)}/>
+        <div 
+        className={"burgerMenu"}
+        onClick={this.props.toggleSideDrawer}>
+          <div className="slant"></div>
+          <div className="slant"></div>
+          <div className="slant"></div>
+        </div>
+
+  			<nav>
+  				<ul className="navigation_items">
+  					<li><Link to="/">Home</Link></li>
+  					<li><a href="http://www.njabulombuli.co.za" target="_blank" rel="noopener noreferrer">My Website</a></li>
+  				</ul>
+  			</nav>
+  			<Logo/>
+  			<div className="ToolBarSearchForm"><SearchBox searchHandler={(event)=>this.searchHandler(event)} findMovie={(event)=>this.findMovie(event)}/></div>
 			</header>
 		);
 	}

@@ -16,7 +16,7 @@ const NowPlaying= ({nowPlaying,showMovie})=>{
               items: 4
               },
             1024:{
-              items: 6
+              items: 7
             },
           };
 
@@ -26,7 +26,7 @@ const NowPlaying= ({nowPlaying,showMovie})=>{
         <AliceCarousel mouseDragEnabled buttonsDisabled={true}
             autoPlayInterval={2000}
         autoPlayDirection="rtl"
-        autoPlay={true}
+        autoPlay={false}
             responsive={responsive}>
          {
             nowPlaying.map((movieDetails,i)=>{

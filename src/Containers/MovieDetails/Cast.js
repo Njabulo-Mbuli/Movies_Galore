@@ -58,7 +58,8 @@ class Cast extends Component{
 		return(
 			<React.Fragment>
 				<div style={{padding:"0",width:"90vw",overflow:"hidden", margin:"8vh auto"}}>
-				<AliceCarousel 
+				<AliceCarousel
+				style={{display:"flex", justifyContent:"center",alignItems:"center"}} 
 				mouseDragEnabled buttonsDisabled={true}
 		        autoPlayDirection="rtl"
 		        autoPlay={false}
@@ -68,6 +69,7 @@ class Cast extends Component{
 					castMembers.map((content,result)=>{
 						return<div onDragStart={handleOnDragStart} key={content.id}>
 							<CastMemberCard
+								key={content.id}
 								name={content.name}
 								character={content.character}
 								id={content.id}
@@ -78,7 +80,7 @@ class Cast extends Component{
 					})
 				}
 				
-				</AliceCarousel>]
+				</AliceCarousel>
 				</div>
 			</React.Fragment>
 		)

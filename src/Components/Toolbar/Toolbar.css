@@ -32,3 +32,33 @@
 img{
 	height:3.5em;
 }
+.burgerMenu {
+    width: 37px;
+    height: 45px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.burgerMenu .slant {
+    width: 90%;
+    height: 3px;
+    background-color: white;
+}
+
+@media (min-width: 670px) {
+    .burgerMenu {
+        display: none;
+    }
+}
+@media(max-width: 670px){
+	.navigation_items{
+		display: none;
+	}
+	.ToolBarSearchForm{
+		display: none;
+	}
+}
