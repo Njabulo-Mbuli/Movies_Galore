@@ -59,7 +59,7 @@ class SearchResults extends Component{
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=c775303404fc7d314a5190e0708c61bf&language=en-US&query=${searchTerm}&page=${this.state.currentPage+this.addCount}&include_adult=false`)
             .then(data=>{
               return data.json()})
-            .then(data=>{ console.log("check for page count",data); this.setState(()=>{
+            .then(data=>{this.setState(()=>{
                 return{
                   search_results:data.results,
                   totalPages:data.total_pages,
@@ -95,8 +95,6 @@ class SearchResults extends Component{
     let display_results=<div style={{height:"100vh", display:"flex",alignItems:"center"}}><Spinner/></div>
     let classNext=(this.state.totalPages>this.state.currentPage+this.addCount)?"paginationOn":"paginationOff";
     let classPrevious=(this.addCount+this.state.currentPage>1)?"paginationOn":"paginationOff";
-
-    console.log("Total number of pages ",this.state.totalPages);
 
     if(this.state.search_results.length>0){
         display_results = <div>
