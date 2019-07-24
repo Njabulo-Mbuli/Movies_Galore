@@ -30,7 +30,7 @@ const Upcoming= ({upcoming,showMovie})=>{
             responsive={responsive}>
          {
             upcoming.map((movieDetails,i)=>{
-               return(<div onDragStart={handleOnDragStart} key={movieDetails.id} onClick={console.log("We werer clicked...")}>
+               return(<div onDragStart={handleOnDragStart} key={movieDetails.id}>
                           <Card 
                               movieDetails={movieDetails}
                               showMovie={(movieDetail)=>showMovie(movieDetail)}/>

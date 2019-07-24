@@ -53,6 +53,7 @@ class Toolbar extends Component{
   			window.alert("Please enter a term to search for...");
   		}
   	}
+    
 	render(){
 		let toolBarToggle = this.state.visible?"Toolbar-hidden":"Toolbar-shown";
 		return(

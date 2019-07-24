@@ -45,13 +45,8 @@ class Cast extends Component{
                 };
 
 		if(this.state.cast){
-			let count=0;
-			Object.keys(this.state.cast).slice(0,10).map(result=>{
-							castMembers.push(this.state.cast[result])
-							count++;
-							if(count>10){
-								return;
-							}
+			castMembers=Object.keys(this.state.cast).slice(0,10).map(result=>{
+							return this.state.cast[result]
 						})
 		}
 

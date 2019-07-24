@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 500;
     background-color: #34e89e;
-    width: 90%;
+    width: 600px;
     padding: 16px;
     left: 15%;
     top: 30%;
@@ -10,17 +10,20 @@
     transition: all 0.5s ease-in-out;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
     .Modal {
-        width: 500px;
-        left: calc(50% - 250px);
+        width: 96vw;
+        top: calc(50% - 50px);
+        left:20vw;
+        height:70vh;
+        overflow: auto;
     }
 }
-@media(max-width: 400px){
+@media(max-width: 600px){
     .Modal{
         position: fixed;
-        left:5%;
-        top:12%;
+        left:2vw;
+        top:25vh;
         font-size: 1em;
     }
 }

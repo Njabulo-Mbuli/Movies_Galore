@@ -6,7 +6,7 @@ class Genres extends Component{
 		if(this.props.genres)
 		Object.keys(this.props.genres).forEach((result)=>{
 					
-					if(result!=0)
+					if(+result!==0)
 						genres.push(" | ");
 
 					genres.push(this.props.genres[result].name);

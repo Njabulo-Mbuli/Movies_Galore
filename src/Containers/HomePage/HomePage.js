@@ -55,6 +55,10 @@ class HomePage extends Component{
       })  
   }
 
+  componentDidMount(){
+    window.scroll({top:0,left:0,behaviour:"smooth"});
+  }
+
    showMovieHandler = (movieDetails) =>{
     
     this.props.history.push({

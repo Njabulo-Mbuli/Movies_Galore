@@ -9,13 +9,23 @@
     box-sizing: border-box;
     cursor: pointer;
 }
-
+.try{
+    margin-top:5em;
+}
 .DrawerToggle div {
     width: 90%;
     height: 3px;
     background-color: white;
 }
-
+.navigation_items_sideDrawer{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+.navigation_items_sideDrawer li{
+    padding:0.7em;
+    font-weight: bold;
+}
 @media (min-width: 500px) {
     .DrawerToggle {
         display: none;

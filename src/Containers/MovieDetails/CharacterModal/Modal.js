@@ -22,5 +22,4 @@ class Modal extends Component{
 			</React.Fragment>
 	}
 }
-
 export default Modal;

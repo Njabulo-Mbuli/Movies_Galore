@@ -3,7 +3,7 @@ import './CardStyling.css';
 
 const Card = ({movieDetails,showMovie}) =>{
 	return(
-		<div className="grow pointer moviecard" onClick={()=>showMovie(movieDetails)}>
+		<div style={{maxWidth:"150px"}} className="grow pointer moviecard" onClick={()=>showMovie(movieDetails)}>
 		
 			<div 
 				className="tc bg-light-green br3 ma2 dib bw2 shadow-5 movieCardContent"

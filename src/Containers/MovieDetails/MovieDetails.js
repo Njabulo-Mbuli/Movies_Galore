@@ -23,6 +23,7 @@ class MovieDetails extends Component{
 	//When the movie details component mounts it then fetches the data that
 	//it needs to display on the screen
 	componentDidMount(){
+		window.scroll({top:0,left:0,behaviour:"smooth"});
 		const query = new URLSearchParams(this.props.location.search);
 		
 		for(let param of query.entries()){

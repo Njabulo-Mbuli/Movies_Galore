@@ -8,6 +8,7 @@ body {
   background-image:linear-gradient(to bottom right,#0f3443,#34e89e,#0f3443);
   color:white;
   background-repeat:no-repeat;
+  padding:0;
 }
 
 code {

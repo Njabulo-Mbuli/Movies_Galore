@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Toolbar from '../../Components/Toolbar/Toolbar';
 import SideDrawer from '../../Components/SideDrawer/SideDrawer';
+import Footer from '../../Components/Footer/Footer';
+
 class Layout extends Component{
 	state={
 		showSideDrawer:false
@@ -18,6 +20,7 @@ class Layout extends Component{
 				<SideDrawer show={this.state.showSideDrawer}
 					toggleView={this.sideDrawerClosedHandler}/>
 				{this.props.children}
+				<Footer/>
 			</React.Fragment>
 		);
 	}
