@@ -10,12 +10,12 @@
     transition: all 0.5s ease-in-out;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .Modal {
         width: 96vw;
-        top: calc(50% - 50px);
-        left:20vw;
-        height:70vh;
+        top: 25vh;
+        left:2vw;
+        max-height:50vh;
         overflow: auto;
     }
 }
