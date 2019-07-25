@@ -112,7 +112,9 @@ class MovieDetails extends Component{
 		if(this.state.MovieDetails){
 			display=(
 				<div style={{minHeight:"100vh"}}>
-					<Backdrop backdrop_path={this.state.MovieDetails.backdrop_path}/>
+					<Backdrop 
+							backdrop_path={this.state.MovieDetails.backdrop_path}
+							tagline={this.state.MovieDetails.tagline}/>
 						<div style={{alignSelf:"center"}}>
 						<MovieCard 
 							poster={this.state.MovieDetails.poster_path}

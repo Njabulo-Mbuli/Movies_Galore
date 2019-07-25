@@ -59,7 +59,9 @@ class SearchResults extends Component{
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=c775303404fc7d314a5190e0708c61bf&language=en-US&query=${searchTerm}&page=${this.state.currentPage+this.addCount}&include_adult=false`)
             .then(data=>{
               return data.json()})
-            .then(data=>{this.setState(()=>{
+            .then(data=>{
+                console.log(data);
+              this.setState(()=>{
                 return{
                   search_results:data.results,
                   totalPages:data.total_pages,
