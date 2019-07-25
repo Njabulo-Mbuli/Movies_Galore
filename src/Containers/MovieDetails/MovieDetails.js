@@ -90,7 +90,7 @@ class MovieDetails extends Component{
 		let display=SPINNER;
 		
 		if(this.state.showActor){
-			actorDetails=SPINNER;
+			actorDetails=<div className="spinner">{SPINNER}</div>;
 		}
 
 		if(this.state.showActor&&this.state.actorDetails){

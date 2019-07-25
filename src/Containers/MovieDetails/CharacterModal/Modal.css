@@ -1,29 +1,34 @@
 .Modal {
     position: fixed;
     z-index: 500;
+    display: flex;
+    justify-content: center;
     background-color: #34e89e;
-    width: 600px;
-    padding: 16px;
-    left: 15%;
-    top: 30%;
-    box-sizing: border-box;
+    padding: 0.5em;
+    height: 70vh;
+    width:60vw;
+    left: calc(50% - 30vw);
+    top: calc(50% - 30vh);
     transition: all 0.5s ease-in-out;
-}
 
+}
+.spinner{
+    align-self: center;
+}
 @media (max-width: 800px) {
     .Modal {
         width: 96vw;
-        top: 25vh;
-        left:2vw;
-        max-height:60vh;
+        top: calc(50% - 22vh);
+        left:calc(50% - 48vw);
+        height:60vh;
         overflow: auto;
     }
 }
-@media(max-width: 600px){
+@media(max-width: 400px){
     .Modal{
+        top: calc(50% - 19vh);
+        left:calc(50% - 48vw);
+        width:96vw;
         position: fixed;
-        left:2vw;
-        top:25vh;
-        font-size: 1em;
     }
 }
