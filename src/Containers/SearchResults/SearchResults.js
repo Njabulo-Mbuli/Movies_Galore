@@ -8,7 +8,7 @@ class SearchResults extends Component{
     constructor(){
       super();
       this.state={
-        search_results:[],
+        search_results:null,
         loadpage:1,
         currentPage:1,
         totalPages:null,
@@ -96,16 +96,19 @@ class SearchResults extends Component{
     let classNext=(this.state.totalPages>this.state.currentPage+this.addCount)?"paginationOn":"paginationOff";
     let classPrevious=(this.addCount+this.state.currentPage>1)?"paginationOn":"paginationOff";
 
+    if(this.state.search_results)  
     if(this.state.search_results.length>0){
         display_results = <div>
                             <h1 style={{margin:"20px", textAlign:"center"}}>Search results for {this.state.search_Term}</h1>
-                            <div style={{height:"100%",width:"80%", display:"flex",flexFlow:"row wrap",justifyContent:"center",margin:"0 auto"}}>
-                              {this.state.search_results.map((movieDetails,i)=>{
+                             {this.state.totalPages>1?<div style={{textAlign:"center"}}><h3>Page   {this.state.currentPage+this.addCount}</h3></div>:<div style={{textAlign:"center"}}><h3>Only one page of results found...</h3></div>}
+                              <div style={{height:"100%",width:"80%", display:"flex",flexFlow:"row wrap",justifyContent:"center",margin:"0 auto"}}>
+                             {this.state.search_results.map((movieDetails,i)=>{
                                return(<div style={{textAlign:"center"}} key={movieDetails.id}>
                                           <Card 
                                               movieDetails={movieDetails}
                                               showMovie={(id)=>this.showMovieHandler(id)}/>
                                       </div>)})}
+                              
                             </div>
                             <div style={{textAlign:"center"}}>
                                
@@ -130,6 +133,5 @@ class SearchResults extends Component{
  		);
   }
  }
-
 
 export default SearchResults;
