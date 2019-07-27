@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "react-alice-carousel": "^1.15.1"
+    "react-alice-carousel": "^1.15.2"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",

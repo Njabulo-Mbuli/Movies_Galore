@@ -6,13 +6,16 @@ import "react-alice-carousel/lib/alice-carousel.css";
 class OtherRoles extends Component{
 
 	state={
-		roles:null
+		roles:null,
+		currentIndex:0
 	}
 
 	render(){
 		let actorRoles=[]
 		
 		  const handleOnDragStart=e=>e.preventDefault()
+
+
   
   let responsive={
                 0:{
@@ -29,13 +32,13 @@ class OtherRoles extends Component{
                   },
                 };
 
-
 		return(
 			<React.Fragment>
 				<div style={{padding:"0",width:"60vw",overflow:"hidden", margin:"0.2em auto"}}>
 				<AliceCarousel
 				mouseDragEnabled buttonsDisabled={true}
 				keyControlDisabled={false}
+
 				dotsDisabled={true}
 		        autoPlayDirection="rtl"
 		        autoPlayInterval={2000}
