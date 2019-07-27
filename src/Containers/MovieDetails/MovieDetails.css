@@ -1,0 +1,11 @@
+.closeButton{
+	position: absolute;
+	top:0.5em;
+	right:0.5em;
+}
+@media(max-width:880px){
+.roles{
+	display: none;
+}
+
+}

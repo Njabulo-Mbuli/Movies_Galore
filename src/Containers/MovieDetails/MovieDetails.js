@@ -4,25 +4,37 @@ import MovieCard from './MovieCard';
 import Spinner from '../../Components/Spinner/Spinner';
 import Modal from './CharacterModal/Modal';
 import Cast from './Cast';
+import OtherRoles from './OtherRoles';
+import './MovieDetails.css';
+import CloseButton from '../../assets/close.png';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
 const url=`https://api.themoviedb.org/3/movie/`;
 const SPINNER =<div style={{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>;
-let actorDetails
+let actorDetails,actorRoles;
 
 class MovieDetails extends Component{
 	
 	state={
 		MovieDetails:null,
 		actorDetails:null,
+		actorRoles:null,
 		show:false,
 		showActor:false,
-		actorId:null
+		actorId:null,
+		movieId:null
 	}
 
 	//When the movie details component mounts it then fetches the data that
 	//it needs to display on the screen
+	
 	componentDidMount(){
+		window.scroll({top:0,left:0,behaviour:"smooth"});
+
+		this.retrieveData()
+	}
+
+	retrieveData=()=>{
 		window.scroll({top:0,left:0,behaviour:"smooth"});
 		const query = new URLSearchParams(this.props.location.search);
 		
@@ -30,6 +42,12 @@ class MovieDetails extends Component{
 			if(param[0]==="id"){
 				fetch(url+`${param[1]}?api_key=${api_key}&language=en-US`)
 			        .then(result=>{
+			        	this.setState(()=>{
+			        return{
+			        		...this.state,
+			        		movieId:param[1]
+			        		}
+			        	});
 			           return result.json();
 			        }).then(result=>{
 			        	this.setState(()=>{
@@ -44,15 +62,25 @@ class MovieDetails extends Component{
 			else{
 				this.props.history.goBack();
 			}
-	}
+		}
 
-	this.setState({
-		...this.state,
-		show:true
-	})
+		this.setState({
+			...this.state,
+			show:true
+		})
 	}
 
 	shouldComponentUpdate(prevProps,prevState){
+
+		setTimeout(()=>{
+		const query = new URLSearchParams(this.props.location.search);
+		
+		for(let param of query.entries()){
+			if(param[1]!==this.state.movieId){
+				this.retrieveData()
+			}
+		}},200)
+
 		return prevState!==this.state;
 	}
 
@@ -69,10 +97,13 @@ class MovieDetails extends Component{
 				return result.json()
 			}).then(result=>{
 				this.setState(()=>{
+					setTimeout(()=>{this.fetchOtherRolesHandler()},300);
 				return{	...this.state,
 					actorDetails:result}
 				});
 			})
+
+
 	}
 
 	//This is for toggling the Modal that shows the cast member's details
@@ -82,20 +113,46 @@ class MovieDetails extends Component{
 			showActor:!this.state.showActor
 		})
 		setTimeout(()=>{this.setState({
-			actorDetails:null
+			...this.state,
+			actorDetails:null,
+			actorRoles:null
 		})},500);
 	}
+
+	fetchOtherRolesHandler=()=>{
+			fetch(`https://api.themoviedb.org/3/person/${this.state.actorDetails.id}/movie_credits?api_key=${api_key}&language=en-US`)
+					.then((result)=>{
+						return result.json()
+					}).then(result=>{
+							this.setState(()=>{
+								return {
+									...this.state,
+									actorRoles:result
+								}
+							});
+					})
+	}
+
+	showMovieHandler = (id) =>{
+	    this.props.history.push({
+	      pathname:'/movie_details',
+	      search:`?id=${id}`
+	    });
+  	}
+
 	render(){
 
 		let display=SPINNER;
 		
 		if(this.state.showActor){
 			actorDetails=<div className="spinner">{SPINNER}</div>;
+			actorRoles=null;
 		}
 
 		if(this.state.showActor&&this.state.actorDetails){
-			actorDetails=<div>
-							<div style={{display:"flex",flexFlow:"row"}}>
+			
+			actorDetails=<React.Fragment>
+							<div style={{margin:"0",display:"flex",flexFlow:"row"}}>
 								<div className="shadow-1 castCard" style={{margin:"0",width:"140px",heigh:"150px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${this.state.actorDetails.profile_path})`}}></div>
 								<div style={{padding:"0.4em"}}>
 									<h2>{this.state.actorDetails.name}</h2>
@@ -105,9 +162,18 @@ class MovieDetails extends Component{
 							</div>
 							<h2 style={{padding:"0",margin:"0"}}>Biography:</h2>
 							<p style={{maxHeight:"150px",overflow:"auto"}}>{this.state.actorDetails.biography}</p>
-							<button className="f6 link dim ba bw1 ph3 pv2 mb2 dib black" onClick={this.toggleModalHandler}>Close</button>
-						</div>
+						</React.Fragment>
+
+
+			if (this.state.actorRoles){
+				actorRoles=<OtherRoles 
+								roles={this.state.actorRoles.cast}
+								showMovieDetails={(id)=>{this.showMovieHandler(id)}}
+								hideModal={()=>{this.toggleModalHandler()}}/>;
+			}
 		}
+
+
 
 		if(this.state.MovieDetails){
 			display=(
@@ -132,7 +198,13 @@ class MovieDetails extends Component{
 		return(
 			<React.Fragment>
 				<Modal show={this.state.showActor} hideModal={()=>this.toggleModalHandler()} onClick={this.state.showActor}>
+					<div style={{boxSixing:"border-box"}}>
 					{actorDetails}
+					<div className="roles" style={{margin:"0",padding:"0",width:"100%", height:"35vh", justifyContent:"center"}}>
+							{actorRoles}
+					</div>
+					<img src={CloseButton} style={{margin:"0",width:"2em",height:"auto"}} className="closeButton" onClick={this.toggleModalHandler}/>
+					</div>
 				</Modal>
 				{display}
 			</React.Fragment>

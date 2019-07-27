@@ -8,7 +8,7 @@ const MovieCard = (props) =>{
 	
 	
 	return(
-		<div className="Container" style={{width:"80%"}}>
+		<div className="Container" style={{width:"75vw"}}>
 		<div style={{display:"flex",flexFlow:"row"}}>
 			<div 
 				className="movieCard tc bg-light-green br3 ma2 dib bw2 shadow-5"

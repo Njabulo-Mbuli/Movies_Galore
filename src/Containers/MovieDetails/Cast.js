@@ -12,16 +12,35 @@ class Cast extends Component{
 	}
 
 	componentWillMount(){
+		this.retrieveData()
+	}
+
+	retrieveData=()=>{
 		fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}/credits?api_key=c775303404fc7d314a5190e0708c61bf`)
 			.then(results=>{
 				return results.json();
 			}).then(results=>{
+				console.log("Finished fetching data:  ",results);
 				this.setState(()=>{
 					return {
 						cast:results.cast
 					}
 				});
 			});
+	}
+	componentDidUpdate(){
+
+	}
+	shouldComponentUpdate(prevProps,prevState){
+		if(prevProps.movieId!==this.props.movieId){
+			setTimeout(()=>{this.retrieveData()},200)
+		}
+		// console.log("Should we update in cast.js ",prevProps!==this.props);
+		// console.log("Cast prevState: ",prevState);
+		// console.log("Cast currState: ",this.state);
+		// console.log("these are props ",prevProps);
+		// console.log("these are updated props: ",this.props);
+		return prevProps.movieId!==this.props.movieId||prevState!==this.state;
 	}
 
 	render(){
@@ -52,9 +71,9 @@ class Cast extends Component{
 
 		return(
 			<React.Fragment>
-				<div style={{padding:"0",width:"90vw",overflow:"hidden", margin:"8vh auto"}}>
+				<div style={{padding:"0",width:"75vw",overflow:"hidden", margin:"8vh auto"}}>
+				<h3>Cast:</h3>
 				<AliceCarousel
-				style={{display:"flex", justifyContent:"center",alignItems:"center"}} 
 				mouseDragEnabled buttonsDisabled={true}
 		        autoPlayDirection="rtl"
 		        autoPlay={false}
