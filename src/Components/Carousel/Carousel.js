@@ -19,7 +19,7 @@ const Carousel = (props) =>{
           };
 
     return( 
-    <div>
+    <div style={{width:"80vw"}}>
         <AliceCarousel mouseDragEnabled buttonsDisabled={true}
             autoPlayInterval={2000}
         autoPlayDirection="rtl"
