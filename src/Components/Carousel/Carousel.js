@@ -22,8 +22,8 @@ const Carousel = (props) =>{
     <div style={{width:"80vw"}}>
         <AliceCarousel mouseDragEnabled buttonsDisabled={true}
             autoPlayInterval={2000}
-        autoPlayDirection="rtl"
-        autoPlay={false}
+        	autoPlayDirection="rtl"
+        	autoPlay={false}
             responsive={responsive}>
          {
             props.movieList.map((movieDetails,i)=>{

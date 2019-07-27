@@ -126,7 +126,7 @@ class SearchResults extends Component{
     }
     
  	return(
- 			<div style={{paddingTop:"4.6em", minHeight:"100vh"}}>
+ 			<div style={{paddingTop:"4.6em", minHeight:"100vh",paddingBottom:"4.6em"}}>
         
 				{display_results}
 			</div>
