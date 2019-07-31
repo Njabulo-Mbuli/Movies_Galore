@@ -1,7 +1,5 @@
 @font-face {font-family: "Building_Font";
-    src: url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.eot");
-    src: url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.eot?#iefix") format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff2") format("woff2"),
+    src: url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff2") format("woff2"),
     url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff") format("woff"),
     url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.ttf") format("truetype");
 }
@@ -12,7 +10,6 @@
 	box-shadow: 0px 6px 27px 1px rgba(0,0,0,0.75);
 	background-color: #34e89e;
 	padding:0.8em 4em;
-	padding-left: 
 }
 
 .Footer_Title{
@@ -81,7 +78,7 @@
 	flex-flow: row;
 }
 @media(max-width: 800px){
-	.Footer_Style{
+	.Footer_Styling{
 		padding:0.8em;
 	}
 	.Footer_Title{

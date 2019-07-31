@@ -10,6 +10,7 @@ const Footer = () =>{
 				<h1 className="Footer_Title">Movie Club</h1>
 				<section className="footer_section"><p>Code and Design by: </p><p>Njabulo Mbuli</p></section>
 				<section className="footer_section"><p>Phone Number: </p><p> 074 966 8295</p></section>
+				<section className="footer_section"><p>Email: </p><p>admin@njabulombuli.co.za</p></section>
 
 			</section>
 

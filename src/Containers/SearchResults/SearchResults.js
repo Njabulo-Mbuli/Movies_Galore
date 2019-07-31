@@ -92,7 +92,11 @@ class SearchResults extends Component{
   }
   
   render(){
+    //It will show a spinner while loading results
     let display_results=<div style={{height:"100vh", display:"flex",alignItems:"center"}}><Spinner/></div>
+
+    /*The next two variables are being used to determine how the next and previous button
+    in the search results are styled*/
     let classNext=(this.state.totalPages>this.state.currentPage+this.addCount)?"paginationOn":"paginationOff";
     let classPrevious=(this.addCount+this.state.currentPage>1)?"paginationOn":"paginationOff";
 
@@ -102,7 +106,7 @@ class SearchResults extends Component{
                             <h1 style={{margin:"20px", textAlign:"center"}}>Search results for "{this.state.search_Term}"</h1>
                            
                              {//Using a tenary statement to display the "Showing search results for..." heading
-                             
+
                               this.state.totalPages>1?
                                 <div style={{textAlign:"center"}}>
                                   <h3>Page   {this.state.currentPage+this.addCount} of {this.state.totalPages}</h3>
@@ -111,7 +115,7 @@ class SearchResults extends Component{
                                 <div style={{textAlign:"center"}}>
                                   <h3>Only one page of results found...</h3>
                                 </div>}
-                              <div style={{height:"100%",width:"80%", display:"flex",flexFlow:"row wrap",justifyContent:"center",margin:"0 auto"}}>
+                              <div style={{height:"100%",width:"80%",maxWidth:"800px", display:"flex",flexFlow:"row wrap",justifyContent:"center",margin:"0 auto"}}>
                           
                              {
                               /*Mapping through the search results and then returning a the
@@ -137,7 +141,7 @@ class SearchResults extends Component{
                             </div>
                           </div>
     }else{
-      display_results=<h3 style={{textAlign:"center"}}>Sorry there are no results matching {this.state.search_Term}</h3>
+      display_results=<h1 style={{textAlign:"center"}}>Sorry there are no results matching "{this.state.search_Term}"</h1>
     }
     
  	return(
