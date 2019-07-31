@@ -1,7 +1,25 @@
 
 .Back_Drop{
+	display:flex;
+	align-items:center;
+	justify-content:center;
 	height:90vh;
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:cover;
+	-moz-box-shadow: inset -6px -10px 10px -7px #000000;
+    -webkit-box-shadow: inset -6px -10px 10px -7px #000000;
+    box-shadow: inset -6px -10px 10px -7px #000000;
+}
+
+@media(max-width: 800px){
+	.Back_Drop{
+		background-position: center 50px;
+	}
+}
+
+@media(max-width: 500px){
+	.Back_Drop{
+		height: 40vh;
+	}
 }

@@ -13,3 +13,17 @@ width: 100%;
       overflow: hidden;
       background-color: red;
       }
+
+.CastContainer{
+    padding:0;
+    width:75vw;
+    overflow: hidden;
+    margin:8vh auto;
+}
+
+@media(max-width:450px){
+  .CastContainer{
+    min-width:95%;
+    margin:0.3em auto;
+  }
+}

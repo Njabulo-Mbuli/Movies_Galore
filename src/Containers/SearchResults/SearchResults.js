@@ -99,10 +99,25 @@ class SearchResults extends Component{
     if(this.state.search_results)  
     if(this.state.search_results.length>0){
         display_results = <div>
-                            <h1 style={{margin:"20px", textAlign:"center"}}>Search results for {this.state.search_Term}</h1>
-                             {this.state.totalPages>1?<div style={{textAlign:"center"}}><h3>Page   {this.state.currentPage+this.addCount} of {this.state.totalPages}</h3></div>:<div style={{textAlign:"center"}}><h3>Only one page of results found...</h3></div>}
+                            <h1 style={{margin:"20px", textAlign:"center"}}>Search results for "{this.state.search_Term}"</h1>
+                           
+                             {//Using a tenary statement to display the "Showing search results for..." heading
+                             
+                              this.state.totalPages>1?
+                                <div style={{textAlign:"center"}}>
+                                  <h3>Page   {this.state.currentPage+this.addCount} of {this.state.totalPages}</h3>
+                                </div>:
+
+                                <div style={{textAlign:"center"}}>
+                                  <h3>Only one page of results found...</h3>
+                                </div>}
                               <div style={{height:"100%",width:"80%", display:"flex",flexFlow:"row wrap",justifyContent:"center",margin:"0 auto"}}>
-                             {this.state.search_results.map((movieDetails,i)=>{
+                          
+                             {
+                              /*Mapping through the search results and then returning a the
+                              details for each result using the Card component*/
+
+                              this.state.search_results.map((movieDetails,i)=>{
                                return(<div style={{textAlign:"center"}} key={movieDetails.id}>
                                           <Card 
                                               movieDetails={movieDetails}

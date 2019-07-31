@@ -35,11 +35,6 @@ class Cast extends Component{
 		if(prevProps.movieId!==this.props.movieId){
 			setTimeout(()=>{this.retrieveData()},200)
 		}
-		// console.log("Should we update in cast.js ",prevProps!==this.props);
-		// console.log("Cast prevState: ",prevState);
-		// console.log("Cast currState: ",this.state);
-		// console.log("these are props ",prevProps);
-		// console.log("these are updated props: ",this.props);
 		return prevProps.movieId!==this.props.movieId||prevState!==this.state;
 	}
 
@@ -71,8 +66,9 @@ class Cast extends Component{
 
 		return(
 			<React.Fragment>
-				<div style={{padding:"0",width:"75vw",overflow:"hidden", margin:"8vh auto"}}>
+				<div className="CastContainer">
 				<h3>Cast:</h3>
+				
 				<AliceCarousel
 				mouseDragEnabled buttonsDisabled={true}
 		        autoPlayDirection="rtl"

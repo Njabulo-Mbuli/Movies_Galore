@@ -1,0 +1,99 @@
+@font-face {font-family: "Building_Font";
+    src: url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.eot");
+    src: url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.ttf") format("truetype");
+}
+
+.Footer_Styling{
+	margin-bottom:0;
+	margin-top:2em;
+	box-shadow: 0px 6px 27px 1px rgba(0,0,0,0.75);
+	background-color: #34e89e;
+	padding:0.8em 4em;
+	padding-left: 
+}
+
+.Footer_Title{
+  color: white;
+  font-size: 4em;
+  font-family:'Building_Font';
+  text-transform: uppercase;
+  text-shadow: 1px 1px #0f3443, 
+                2px 2px #0f3443, 
+                3px 3px #0f3443;
+  margin:0.2em;
+  margin-left: 0;
+
+}
+
+.footer_main_block{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.footer_section{
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	margin:0.2em;
+	padding:0;
+}
+
+.footer_section p{
+	padding:0;
+	margin: 0.2em;
+}
+
+
+.tmdb_logo{
+	background:url(../../assets/powered_by.svg);
+	background-repeat: no-repeat;
+	background-size:contain;
+	width:30vw;
+	background-position: center;
+	min-width:150px;
+	min-height: 80px;
+	margin-top: 1.5em;
+}
+
+.twitter_logo,.facebook_logo{
+	background-repeat: no-repeat;
+	background-size:contain;
+	background-color: red;
+	background-position: center;
+	width:50px;
+	height: 50px;
+}
+.twitter_logo{
+	background:url(../../assets/twitter.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.facebook_logo{
+	background:url(../../assets/facebook.svg);
+}
+.social_links{
+	display: flex;
+	justify-content: center;
+	flex-flow: row;
+}
+@media(max-width: 800px){
+	.Footer_Style{
+		padding:0.8em;
+	}
+	.Footer_Title{
+		width: 100%;
+		text-align: center;
+	}
+	.footer_block{
+		width:100%;
+		margin:0 auto;
+	}
+	.tmdb_logo{
+		height:50px;
+		width:80px;
+	}
+}

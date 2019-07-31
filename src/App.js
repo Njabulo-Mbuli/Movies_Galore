@@ -6,6 +6,10 @@ import SearchResults from './Containers/SearchResults/SearchResults';
 import MovieDetails from './Containers/MovieDetails/MovieDetails';
 
 class App extends Component{
+  constructor(){
+    super()
+    window.AddCount=0
+  }
 
   render(){
     return(

@@ -6,6 +6,8 @@ const RoleCard = (props) =>{
 		props.showMovieDetails(props.id);
 	}
 
+	let background_poster= require('../../assets/no_image_found_poster.png');
+
 	return(
 		<div
 			onClick={()=>runFunctions()} 
@@ -14,7 +16,7 @@ const RoleCard = (props) =>{
 			style={{width:"120px",textAlign:"center",color:"black",borderRadius:"5px",backgroundSize:'contain'}}>
 			<div 
 				className="castCard"
-				style={{margin:"0 auto",width:"120px",height:"140px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${props.poster_path})`,backgroundSize:'contain'}}>
+				style={{margin:"0 auto",width:"120px",height:"140px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${props.poster_path}),url(${background_poster})`,backgroundRepeat:"no-repeat",backgroundSize:'cover'}}>
 				
 			</div>
 			<h4 style={{margin:"0"}}>{props.title}</h4>

@@ -10,7 +10,7 @@ import CloseButton from '../../assets/close.png';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
 const url=`https://api.themoviedb.org/3/movie/`;
-const SPINNER =<div style={{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>;
+const SPINNER =<div style={{height:"95vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>;
 let actorDetails,actorRoles;
 
 class MovieDetails extends Component{
@@ -143,6 +143,7 @@ class MovieDetails extends Component{
 	render(){
 
 		let display=SPINNER;
+		let backup_poster=require("../../assets/no_image_found_poster.png");
 		
 		if(this.state.showActor){
 			actorDetails=<div className="spinner">{SPINNER}</div>;
@@ -153,7 +154,7 @@ class MovieDetails extends Component{
 			
 			actorDetails=<React.Fragment>
 							<div style={{margin:"0",display:"flex",flexFlow:"row"}}>
-								<div className="shadow-1 castCard" style={{margin:"0",width:"140px",heigh:"150px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${this.state.actorDetails.profile_path})`}}></div>
+								<div className="shadow-1 castCard" style={{margin:"0",width:"140px",heigh:"150px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${this.state.actorDetails.profile_path}),url(${backup_poster})`}}></div>
 								<div style={{padding:"0.4em"}}>
 									<h2>{this.state.actorDetails.name}</h2>
 									<h3>Birthday: {this.state.actorDetails.birthday}</h3>
@@ -198,7 +199,7 @@ class MovieDetails extends Component{
 		return(
 			<React.Fragment>
 				<Modal show={this.state.showActor} hideModal={()=>this.toggleModalHandler()} onClick={this.state.showActor}>
-					<div style={{boxSixing:"border-box"}}>
+					<div style={{boxSixing:"border-box",width:"100%"}}>
 					{actorDetails}
 					<div className="roles" style={{margin:"0",padding:"0",width:"100%", height:"35vh", justifyContent:"center"}}>
 							{actorRoles}
