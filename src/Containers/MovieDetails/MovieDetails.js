@@ -96,6 +96,7 @@ class MovieDetails extends Component{
 			.then(result=>{
 				return result.json()
 			}).then(result=>{
+				console.log("[ACTOR DETAILS] ",result)
 				this.setState(()=>{
 					setTimeout(()=>{this.fetchOtherRolesHandler()},300);
 				return{	...this.state,
@@ -157,12 +158,20 @@ class MovieDetails extends Component{
 								<div className="shadow-1 castCard" style={{margin:"0",width:"140px",heigh:"150px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${this.state.actorDetails.profile_path}),url(${backup_poster})`}}></div>
 								<div style={{padding:"0.4em"}}>
 									<h2>{this.state.actorDetails.name}</h2>
-									<h3>Birthday: {this.state.actorDetails.birthday}</h3>
-									<h3>Place of Birth: {this.state.actorDetails.place_of_birth}</h3>
+									<h3>Birthday :
+											{this.state.actorDetails.birthday?
+												this.state.actorDetails.birthday:
+												<span style={{color:"grey"}}> <em>Unknown</em></span>}
+									</h3>
+									<h3>Place of Birth: {this.state.actorDetails.place_of_birth?
+												this.state.actorDetails.place_of_birth:
+												<span style={{color:"grey"}}> <em>Unknown</em></span>}</h3>
 								</div>
 							</div>
 							<h2 style={{padding:"0",margin:"0"}}>Biography:</h2>
-							<p style={{maxHeight:"150px",overflow:"auto"}}>{this.state.actorDetails.biography}</p>
+							<p style={{maxHeight:"150px",overflow:"auto"}}>{this.state.actorDetails.biography?
+												this.state.actorDetails.biography:
+												<span style={{color:"grey"}}> <em>Sorry, but the biography for {this.state.actorDetails.name} was not found...</em></span>}</p>
 						</React.Fragment>
 
 
@@ -192,7 +201,7 @@ class MovieDetails extends Component{
 							genres={this.state.MovieDetails.genres}/>
 						<Cast movieId={this.state.MovieDetails.id}
 							showActorDetails={(actorId)=>this.showActorDetails(actorId)}/>
-						
+
 					</div>
 				</div>);
 		}

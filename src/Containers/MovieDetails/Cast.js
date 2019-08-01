@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CastMemberCard from './CastMemberCard';
+import CrewMemberCard from './CrewMemberCard';
 import './Cast.css';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -108,7 +109,7 @@ class Cast extends Component{
 	            responsive={responsive}>
 				{crewMembers.map((content,result)=>{
 						return<div onDragStart={handleOnDragStart} key={content.id}>
-							<CastMemberCard
+							<CrewMemberCard
 								key={content.id}
 								name={content.name}
 								character={content.job}
