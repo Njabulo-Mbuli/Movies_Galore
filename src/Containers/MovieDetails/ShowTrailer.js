@@ -18,7 +18,6 @@ class ShowTrailer extends React.Component{
 					.then(result=>{
 						return result.json();
 					}).then(result=>{
-						console.log("[2ND VIDEO FETCH]",result.results);
 						let temp_storage = result.results.map(data=>{
 							return data;
 						});
@@ -42,7 +41,6 @@ class ShowTrailer extends React.Component{
 
 		if(this.state.trailerKeys){
 			if(this.state.trailerKeys.length>0){
-				console.log("[This is the trailer key]",this.state.trailerKeys[0].key);
 				display=<div class="embed-container" >
 							<iframe src={`https://www.youtube.com/embed/${this.state.trailerKeys[0].key}`}
 									frameborder='0' allowfullscreen>

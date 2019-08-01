@@ -22,7 +22,6 @@ class Cast extends Component{
 			.then(results=>{
 				return results.json();
 			}).then(results=>{
-				console.log("Finished fetching data:  ",results);
 				this.setState(()=>{
 					return {
 						...this.state,

@@ -5,6 +5,9 @@
 	overflow: hidden;
 	width: 75%;
 	margin:2em auto;
+	-webkit-box-shadow: 3px 3px 22px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 22px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 22px 0px rgba(0,0,0,0.75);
 }
 .embed-container iframe,
 .embed-container object,

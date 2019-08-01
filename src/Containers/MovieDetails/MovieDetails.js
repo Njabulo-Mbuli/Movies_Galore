@@ -99,7 +99,6 @@ class MovieDetails extends Component{
 			.then(result=>{
 				return result.json()
 			}).then(result=>{
-				console.log("[ACTOR DETAILS] ",result)
 				this.setState(()=>{
 					setTimeout(()=>{this.fetchOtherRolesHandler()},300);
 				return{	...this.state,
@@ -189,7 +188,6 @@ class MovieDetails extends Component{
 
 
 		if(this.state.MovieDetails){
-			console.log("[MOVIE DETAILS] : ",this.state.MovieDetails);
 			display=(
 				<div style={{minHeight:"100vh"}}>
 					<Backdrop 
