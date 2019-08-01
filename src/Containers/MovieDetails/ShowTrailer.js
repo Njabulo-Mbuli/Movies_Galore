@@ -43,7 +43,7 @@ class ShowTrailer extends React.Component{
 			if(this.state.trailerKeys.length>0){
 				display=<div class="embed-container" >
 							<iframe src={`https://www.youtube.com/embed/${this.state.trailerKeys[0].key}`}
-									frameborder='0' allowfullscreen>
+									frameborder='0' allowfullscreen="">
 							</iframe>
 						</div>
 			}
