@@ -76,7 +76,8 @@ class Cast extends Component{
 			<React.Fragment>
 				<div className="CastContainer">
 				<h3>Cast:</h3>
-				
+				{
+				castMembers.length>0?
 				<AliceCarousel
 				mouseDragEnabled buttonsDisabled={true}
 		        autoPlayDirection="rtl"
@@ -98,10 +99,16 @@ class Cast extends Component{
 					})
 				}
 				
-				</AliceCarousel>
+				</AliceCarousel>:
+				<div  className="blocked_section"style={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(0,0,0,0.5)"}}>
+						<h4>Cast member information is not available for this film...</h4>
+				</div>
+				}
 				</div>
 				<div className="CastContainer">
 				<h3>Crew:</h3>
+				{
+				crewMembers.length>0?
 				<AliceCarousel
 				mouseDragEnabled buttonsDisabled={true}
 		        autoPlayDirection="rtl"
@@ -119,7 +126,11 @@ class Cast extends Component{
 							</div>
 					
 					})}
-				</AliceCarousel>
+				</AliceCarousel>:
+				<div className="blocked_section" style={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(0,0,0,0.5)"}}>
+						<h4>Crew member information is not available for this film...</h4>
+				</div>
+				}
 				</div>
 			</React.Fragment>
 		)
