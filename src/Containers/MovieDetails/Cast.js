@@ -100,7 +100,7 @@ class Cast extends Component{
 				}
 				
 				</AliceCarousel>:
-				<div  className="blocked_section"style={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(0,0,0,0.5)"}}>
+				<div  className="blocked_section"style={{padding:"0.5em", textAlign:"center",display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(15,25,67,0.5)"}}>
 						<h4>Cast member information is not available for this film...</h4>
 				</div>
 				}
@@ -127,7 +127,7 @@ class Cast extends Component{
 					
 					})}
 				</AliceCarousel>:
-				<div className="blocked_section" style={{display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(0,0,0,0.5)"}}>
+				<div className="blocked_section" style={{padding:"0.5em", textAlign:"center",display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(15,25,67,0.5)"}}>
 						<h4>Crew member information is not available for this film...</h4>
 				</div>
 				}
