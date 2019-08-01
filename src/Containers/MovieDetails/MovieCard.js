@@ -27,7 +27,7 @@ const MovieCard = (props) =>{
 		</div>
 		<h3>Movie Overview:</h3>
 		{props.overview?
-			<p>props.overview</p>:
+			<p>{props.overview}</p>:
 			<div className="blocked_section" style={{padding:"0.5em", textAlign:"center",display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(15,25,67,0.5)"}}>
 				<h4>There hasn't been an overview added for this movie...</h4>
 			</div>

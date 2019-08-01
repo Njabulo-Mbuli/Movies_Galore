@@ -186,6 +186,7 @@ class MovieDetails extends Component{
 
 
 		if(this.state.MovieDetails){
+			console.log("[MOVIE DETAILS] : ",this.state.MovieDetails);
 			display=(
 				<div style={{minHeight:"100vh"}}>
 					<Backdrop 
