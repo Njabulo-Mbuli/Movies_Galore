@@ -8,7 +8,8 @@ import "react-alice-carousel/lib/alice-carousel.css";
 class Cast extends Component{
 
 	state={
-		cast:null
+		cast:null,
+		crew:null
 	}
 
 	componentWillMount(){
@@ -23,7 +24,9 @@ class Cast extends Component{
 				console.log("Finished fetching data:  ",results);
 				this.setState(()=>{
 					return {
-						cast:results.cast
+						...this.state,
+						cast:results.cast,
+						crew:results.crew
 					}
 				});
 			});
@@ -40,6 +43,7 @@ class Cast extends Component{
 
 	render(){
 		let castMembers=[]
+		let crewMembers=[]
 		
 		  const handleOnDragStart=e=>e.preventDefault()
   
@@ -61,6 +65,9 @@ class Cast extends Component{
 		if(this.state.cast){
 			castMembers=Object.keys(this.state.cast).slice(0,10).map(result=>{
 							return this.state.cast[result]
+						})
+			crewMembers=Object.keys(this.state.crew).slice(0,10).map(result=>{
+							return this.state.crew[result]
 						})
 		}
 
@@ -90,6 +97,27 @@ class Cast extends Component{
 					})
 				}
 				
+				</AliceCarousel>
+				</div>
+				<div className="CastContainer">
+				<h3>Crew:</h3>
+				<AliceCarousel
+				mouseDragEnabled buttonsDisabled={true}
+		        autoPlayDirection="rtl"
+		        autoPlay={false}
+	            responsive={responsive}>
+				{crewMembers.map((content,result)=>{
+						return<div onDragStart={handleOnDragStart} key={content.id}>
+							<CastMemberCard
+								key={content.id}
+								name={content.name}
+								character={content.job}
+								id={content.id}
+								profile_path={content.profile_path}
+								showActorDetails={(actorId)=>this.props.showActorDetails(actorId)}/>
+							</div>
+					
+					})}
 				</AliceCarousel>
 				</div>
 			</React.Fragment>

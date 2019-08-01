@@ -7,16 +7,16 @@ const CastMemberCard = (props) =>{
 	return(
 		<div
 			onClick={()=>props.showActorDetails(props.id)} 
-			className="tc bg-light-green br3 ma2 dib bw2 shadow-5 grow"
+			className="tc ma2 dib bw2 shadow-5 grow"
 			key={props.id}
-			style={{width:"140px",textAlign:"center",color:"black",borderRadius:"5px"}}>
+			style={{width:"140px",textAlign:"center",color:"white",backgroundColor:"rgba(0,0,0,0.5)"}}>
 			<div 
 				className="castCard"
 				style={{margin:"0 auto",width:"140px",heigh:"150px",backgroundImage:`url(https://image.tmdb.org/t/p/w185/${props.profile_path}),url(${backup_background})`}}>
 				
 			</div>
-			<h4 style={{marginBottom:"0.1em"}}>{props.name}</h4>
-			 {props.character?<h5 style={{marginTop:"0.1em"}}>Plays: {props.character}</h5>:null}
+			<p style={{marginBottom:"0.1em"}}><strong>{props.name}</strong></p>
+			 {props.character?<p style={{marginTop:"0.1em", padding:"0.2em"}}><em>Plays: {props.character}</em></p>:null}
 		</div>
 	);
 }

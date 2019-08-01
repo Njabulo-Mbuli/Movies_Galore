@@ -192,6 +192,7 @@ class MovieDetails extends Component{
 							genres={this.state.MovieDetails.genres}/>
 						<Cast movieId={this.state.MovieDetails.id}
 							showActorDetails={(actorId)=>this.showActorDetails(actorId)}/>
+						
 					</div>
 				</div>);
 		}

@@ -41,11 +41,11 @@ class SearchResults extends Component{
       this.retrieveData(checkValue);
     }
     setTimeout(()=>{
-      let leggo = new URLSearchParams(this.props.location.search);
+      let getSearchTerm = new URLSearchParams(this.props.location.search);
 
-      leggo=leggo.get("search");
-      if(leggo!=this.state.search_Term){
-        this.retrieveData(leggo)
+      getSearchTerm=getSearchTerm.get("search");
+      if(getSearchTerm!=this.state.search_Term){
+        this.retrieveData(getSearchTerm)
         window.scroll({top:0,left:0,behaviour:"smooth"});
       }
     },100);
