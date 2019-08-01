@@ -5,6 +5,7 @@ import Spinner from '../../Components/Spinner/Spinner';
 import Modal from './CharacterModal/Modal';
 import Cast from './Cast';
 import OtherRoles from './OtherRoles';
+import ShowTrailer from './ShowTrailer';
 import './MovieDetails.css';
 import CloseButton from '../../assets/close.png';
 
@@ -69,6 +70,8 @@ class MovieDetails extends Component{
 			show:true
 		})
 	}
+
+
 
 	shouldComponentUpdate(prevProps,prevState){
 
@@ -202,6 +205,7 @@ class MovieDetails extends Component{
 							genres={this.state.MovieDetails.genres}/>
 						<Cast movieId={this.state.MovieDetails.id}
 							showActorDetails={(actorId)=>this.showActorDetails(actorId)}/>
+						<ShowTrailer movie_id={this.state.MovieDetails.id}/>
 
 					</div>
 				</div>);
