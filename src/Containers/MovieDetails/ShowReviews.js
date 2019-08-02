@@ -12,12 +12,10 @@ class ShowReviews extends React.Component{
 	}
 
 	fetchReviews(movie_id){
-		console.log(movie_id);
 		fetch(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${this.props.api_key}&language=en-US&page=1`)
 			.then(result=>{
 				return result.json();
 			}).then(result=>{
-				console.log("[review result] : ",result);
 				this.setState(()=>{
 					return{
 						reviews:result.results.slice(0,5),
@@ -28,7 +26,6 @@ class ShowReviews extends React.Component{
 	}
 
 	shouldComponentUpdate(nextProps,nextState){
-		console.log("[ShowReviews] ; ",nextProps.movie_id,"====",this.props.movie_id)
 
 		if(nextProps.movie_id!==this.props.movie_id){
 			this.fetchReviews(nextProps.movie_id);
