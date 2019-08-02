@@ -32,7 +32,7 @@ class ShowReviews extends React.Component{
 					{result.content.length>700?
 						<React.Fragment>
 						<p>{result.content.slice(0,700)}...</p>
-						<a href={`${result.url}`}>Read Full Review</a>
+						<a href={`${result.url}`} target="_blank">Read Full Review</a>
 						</React.Fragment>:
 						<p>{result.content}</p>
 						}
