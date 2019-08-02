@@ -1,0 +1,34 @@
+.reviews{
+	width:85%;
+	height: auto;
+	margin:0 auto;
+}
+
+.single_review{
+	width: 100%;
+	background-color: rgba(15,25,67,0.5);
+	padding:0.5em;
+	margin:2em auto;
+	height: auto;
+	overflow: hidden;
+}
+
+.single_review:nth-child(odd){
+	border-left:6px solid rgba(214,10,46,0.9);
+}
+
+.single_review:nth-child(even){
+	border-right:6px solid rgb(214,10,46);
+}
+
+.reviews{
+    width:75vw;
+    overflow: hidden;
+}
+
+@media(max-width:450px){
+  .reviews{
+    min-width:95%;
+    margin:0.3em auto;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './ShowReview.css';
 
 class ShowReviews extends React.Component{
 	state={
@@ -10,16 +11,43 @@ class ShowReviews extends React.Component{
 			.then(result=>{
 				return result.json();
 			}).then(result=>{
-				console.log("[ShowReviews Console] : ",result);
+				this.setState(()=>{
+					return{
+						reviews:result.results.slice(0,5)
+					}
+				});
 			})
 	}
 
 	render(){
-		
+		let display;
+
+		if(this.state.reviews)
+		if(this.state.reviews.length>0)
+		 display=this.state.reviews.map(result=>{
+			
+			return(
+				<div className="single_review">
+					<h3>{result.author}</h3>
+					{result.content.length>700?
+						<React.Fragment>
+						<p>{result.content.slice(0,700)}...</p>
+						<a href={`${result.url}`}>Read Full Review</a>
+						</React.Fragment>:
+						<p>{result.content}</p>
+						}
+				</div>
+				)
+		});
+		else{
+			display=<div className="blocked_section" style={{padding:"0.5em", textAlign:"center",display:"flex",justifyContent:"center",alignItems:"center",width:"100%", minHeight:"15vh", backgroundColor:"rgba(15,25,67,0.5)"}}>
+						<h4>There are no reviews available for this movie...</h4>
+					</div>
+		}
 		return(
-			<div>
-				reviews
-				<p>{this.props.api_key} {this.props.movie_id}</p>
+			<div className="reviews">
+				<h2>Reviews:</h2>
+				{display}
 			</div>
 
 		)
