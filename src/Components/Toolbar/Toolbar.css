@@ -28,7 +28,7 @@
 	margin:0;
 	padding:0;
 }
-.navigation_items li{
+.navigation_items li a{
 	padding:0.7em;
 	padding-bottom:0.4em;
 	display: block;
@@ -38,7 +38,7 @@
 	z-index: 1;
 }
 
-.navigation_items li::after{
+.navigation_items li a::after{
 	content:'';
 	position: absolute;
 	top: 0;
@@ -51,7 +51,7 @@
 	transition: 0.2s;
 }
 
-.navigation_items li:hover::after{
+.navigation_items li a:hover::after{
 	transform: scaleX(1);
 }
 

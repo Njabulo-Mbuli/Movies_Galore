@@ -15,7 +15,7 @@
 }
 
 .single_review:nth-child(odd){
-	border-left:6px solid rgba(214,10,46,0.9);
+	border-left:6px solid rgba(214,10,46,1);
 }
 
 .single_review:nth-child(even){

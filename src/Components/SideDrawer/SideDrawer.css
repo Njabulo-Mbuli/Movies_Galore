@@ -1,3 +1,22 @@
+@font-face {font-family: "Building_Font";
+    src: url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/aa7b8f48384145ad8fd50eabc230a55b.ttf") format("truetype");
+}
+
+.SideDrawer_Title{
+  color: white;
+  font-size: 4em;
+  font-family:'Building_Font';
+  text-transform: uppercase;
+  text-shadow: 1px 1px #0f3443, 
+                2px 2px #0f3443, 
+                3px 3px #0f3443;
+  margin:0.2em;
+  margin-left: 0;
+
+}
+
 .DrawerToggle {
     width: 40px;
     height: 125vh;

@@ -44,7 +44,7 @@ class SideDrawer extends Component{
 			<Fragment>
 				<Backdrop show={this.props.show} hideModal={this.props.toggleView}/>
 				<div className={attachedClasses.join(" ")}>
-					<h2>Movie Club</h2>
+					<h2 className="SideDrawer_Title">Movie Club</h2>
 					<SearchBox searchHandler={(event)=>this.searchHandler(event)} findMovie={(event)=>this.findMovie(event)}/>
 				<nav className="try">
 	  				<ul className="navigation_items_sideDrawer">
