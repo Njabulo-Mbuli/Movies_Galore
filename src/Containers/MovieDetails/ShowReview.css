@@ -11,6 +11,7 @@
 	margin:2em auto;
 	height: auto;
 	overflow: hidden;
+	box-sizing: border-box;
 }
 
 .single_review:nth-child(odd){

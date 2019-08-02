@@ -3,20 +3,38 @@ import './ShowReview.css';
 
 class ShowReviews extends React.Component{
 	state={
-		reviews:null
+		reviews:null,
+		movie_id:null
 	}
 
 	componentWillMount(){
-		fetch(`https://api.themoviedb.org/3/movie/${this.props.movie_id}/reviews?api_key=${this.props.api_key}&language=en-US&page=1`)
+		this.fetchReviews(this.props.movie_id);
+	}
+
+	fetchReviews(movie_id){
+		console.log(movie_id);
+		fetch(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${this.props.api_key}&language=en-US&page=1`)
 			.then(result=>{
 				return result.json();
 			}).then(result=>{
+				console.log("[review result] : ",result);
 				this.setState(()=>{
 					return{
-						reviews:result.results.slice(0,5)
+						reviews:result.results.slice(0,5),
+						movie_id:this.props.movie_id
 					}
 				});
 			})
+	}
+
+	shouldComponentUpdate(nextProps,nextState){
+		console.log("[ShowReviews] ; ",nextProps.movie_id,"====",this.props.movie_id)
+
+		if(nextProps.movie_id!==this.props.movie_id){
+			this.fetchReviews(nextProps.movie_id);
+		}
+
+		return nextProps.movie_id!==this.props.movie_id||this.state.reviews!==nextState.reviews;
 	}
 
 	render(){

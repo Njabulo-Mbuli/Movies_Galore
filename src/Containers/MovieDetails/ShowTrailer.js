@@ -4,7 +4,8 @@ import './ShowTrailer.css';
 class ShowTrailer extends React.Component{
 	
 	state={
-		trailerKeys:null
+		trailerKeys:null,
+		movie_id:null
 	}
 
 	componentWillMount(){
@@ -30,8 +31,12 @@ class ShowTrailer extends React.Component{
 		
 	}
 
-	shouldComponentUpdate(prevProps,prevState){
-		return 	prevState!==this.state;
+	shouldComponentUpdate(nextProps,nextState){
+		if(nextProps.movie_id!==this.props.movie_id){
+			this.fetchTrailer(nextProps.movie_id);
+		}
+		return nextProps.movie_id!==this.props.movie_id||nextState.trailerKeys!==this.state.trailerKeys;
+
 	}
 
 	render(){
