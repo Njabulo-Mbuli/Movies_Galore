@@ -71,9 +71,9 @@ a {
   font-size: 7em;
   font-family:'Building_Font';
   text-transform: uppercase;
-  text-shadow: 1px 1px rgb(214,10,46), 
-                2px 2px rgb(214,10,46), 
-                3px 3px rgb(214,10,46);
+  text-shadow: 1px 1px #34e89e, 
+                2px 2px #34e89e, 
+                3px 3px #34e89e;
 }
 
 @keyframes bounce {
