@@ -18,7 +18,7 @@ class Cast extends Component{
 	}
 
 	retrieveData=()=>{
-		fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}/credits?api_key=c775303404fc7d314a5190e0708c61bf`)
+		fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}/credits?api_key=${this.props.api_key}`)
 			.then(results=>{
 				return results.json();
 			}).then(results=>{

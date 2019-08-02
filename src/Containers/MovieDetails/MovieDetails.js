@@ -6,6 +6,7 @@ import Modal from './CharacterModal/Modal';
 import Cast from './Cast';
 import OtherRoles from './OtherRoles';
 import ShowTrailer from './ShowTrailer';
+import ShowReviews from './ShowReviews';
 import './MovieDetails.css';
 import CloseButton from '../../assets/close.png';
 
@@ -202,8 +203,14 @@ class MovieDetails extends Component{
 							overview={this.state.MovieDetails.overview}
 							genres={this.state.MovieDetails.genres}/>
 						<Cast movieId={this.state.MovieDetails.id}
-							showActorDetails={(actorId)=>this.showActorDetails(actorId)}/>
-						<ShowTrailer movie_id={this.state.MovieDetails.id}/>
+							showActorDetails={(actorId)=>this.showActorDetails(actorId)}
+							api_key={api_key}/>
+						<ShowTrailer 
+							movie_id={this.state.MovieDetails.id}
+							api_key={api_key}/>
+						<ShowReviews 
+							movie_id={this.state.MovieDetails.id}
+							api_key={api_key}/>
 
 					</div>
 				</div>);
