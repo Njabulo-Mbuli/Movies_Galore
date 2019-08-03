@@ -61,7 +61,7 @@ class ShowReviews extends React.Component{
 		}
 		return(
 			<div className="reviews">
-				<h2>Reviews:</h2>
+				<h2>Noteworthy Reviews:</h2>
 				{display}
 			</div>
 
