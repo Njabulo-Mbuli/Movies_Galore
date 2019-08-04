@@ -11,6 +11,9 @@ class ShowReviews extends React.Component{
 		this.fetchReviews(this.props.movie_id);
 	}
 
+	componentWillUpdate(){
+		
+	}
 	fetchReviews(movie_id){
 		fetch(`https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=${this.props.api_key}&language=en-US&page=1`)
 			.then(result=>{
