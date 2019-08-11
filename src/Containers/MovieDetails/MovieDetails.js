@@ -12,7 +12,9 @@ import CloseButton from '../../assets/close.png';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
 const url=`https://api.themoviedb.org/3/movie/`;
-const SPINNER =<div style={{height:"95vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>;
+const SPINNER =<div style={{height:"95vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+					<Spinner/>
+				</div>;
 let actorDetails,actorRoles;
 
 class MovieDetails extends Component{
@@ -71,8 +73,6 @@ class MovieDetails extends Component{
 			show:true
 		})
 	}
-
-
 
 	shouldComponentUpdate(prevProps,prevState){
 
@@ -194,7 +194,7 @@ class MovieDetails extends Component{
 					<Backdrop 
 							backdrop_path={this.state.MovieDetails.backdrop_path}
 							tagline={this.state.MovieDetails.tagline}/>
-						<div style={{alignSelf:"center"}}>
+					<div style={{alignSelf:"center"}}>
 						<MovieCard 
 							poster={this.state.MovieDetails.poster_path}
 							title={this.state.MovieDetails.title}
