@@ -186,8 +186,6 @@ class MovieDetails extends Component{
 			}
 		}
 
-
-
 		if(this.state.MovieDetails){
 			display=(
 				<div style={{minHeight:"100vh"}}>
