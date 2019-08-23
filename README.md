@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can view the build for this project at: http://movies.njabulombuli.co.za
 
 ## Available Scripts
 
