@@ -8,19 +8,19 @@ import Spinner from '../../Components/Spinner/Spinner';
 import './HomePage.css';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
-categories = ((`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`,"top_rated_list"),
-              (`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`,"popular_list"),
-              (`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`,"now_playing_list"),
-              (`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`,"upcoming"))
+const categories = [[`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`,"top_rated_list"],
+              [`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`,"popular_list"],
+              [`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`,"now_playing_list"],
+              [`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`,"upcoming"]]
 
 class HomePage extends Component{
   constructor(){
     super();
      this.state={
           top_rated_list:[],
-         popular_list:[],
-         now_playing_list:[],
-         upcoming:[]
+          popular_list:[],
+          now_playing_list:[],
+          upcoming:[]
         };
 
     categories.forEach(a=>{
@@ -42,7 +42,6 @@ class HomePage extends Component{
   }
 
    showMovieHandler = (movieDetails) =>{
-    
     this.props.history.push({
       pathname:'/movie_details',
       search:`?id=${movieDetails.id}`
@@ -50,10 +49,10 @@ class HomePage extends Component{
   }
 
   render(){
-   
     let display=<div style={{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}><Spinner/></div>
     let movieDetails=this.state.upcoming[1];
-   let backdrop='';
+    let backdrop='';
+
     if(movieDetails){
       backdrop=movieDetails.backdrop_path;
       display= (<div className="HomePage">
@@ -76,7 +75,6 @@ class HomePage extends Component{
                 </div>)
     }
 
-
   return (
     <React.Fragment >
         {display}
@@ -84,5 +82,4 @@ class HomePage extends Component{
   );
 }
 }
-
 export default HomePage;
