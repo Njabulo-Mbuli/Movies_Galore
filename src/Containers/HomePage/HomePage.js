@@ -8,13 +8,10 @@ import Spinner from '../../Components/Spinner/Spinner';
 import './HomePage.css';
 
 const api_key='c775303404fc7d314a5190e0708c61bf';
-
-const urls=[
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`,
-          `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`,
-          `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`,
-          `https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`
-          ]
+categories = ((`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`,"top_rated_list"),
+              (`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`,"popular_list"),
+              (`https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`,"now_playing_list"),
+              (`https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`,"upcoming"))
 
 class HomePage extends Component{
   constructor(){
@@ -26,33 +23,18 @@ class HomePage extends Component{
          upcoming:[]
         };
 
-    //consider refactoring the code below to eliminate the repetition
-    //of the fetch. Put it in a function or something.
-    //dont forget about window.location.href
-    fetch(urls[0])
+    categories.forEach(a=>{
+      this.fetchCategory(a)
+    })       
+  }
+
+  fetchCategory(chosen){
+    fetch(chosen[0])
         .then(result=>{
           return result.json();
         }).then(dat=>{
-            this.setState({ top_rated_list : dat.results })
+            this.setState({[`${chosen[1]}`]:dat.results})
       })
-    fetch(urls[1])
-        .then(result=>{
-          return result.json();
-        }).then(dat=>{
-            this.setState({ popular_list : dat.results })
-      })
-    fetch(urls[2])
-        .then(result=>{
-          return result.json();
-        }).then(dat=>{
-            this.setState({now_playing_list : dat.results})
-      })
-        fetch(urls[3])
-        .then(result=>{
-          return result.json();
-        }).then(dat=>{
-            this.setState({upcoming : dat.results})
-      })  
   }
 
   componentDidMount(){
