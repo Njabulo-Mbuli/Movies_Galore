@@ -222,7 +222,7 @@ class MovieDetails extends Component{
 					<div className="roles" style={{margin:"0",padding:"0",width:"100%", height:"35vh", justifyContent:"center"}}>
 							{actorRoles}
 					</div>
-					<img src={CloseButton} style={{margin:"0",width:"2em",height:"auto"}} className="closeButton" onClick={this.toggleModalHandler}/>
+					<img src={CloseButton} alt="" style={{margin:"0",width:"2em",height:"auto"}} className="closeButton" onClick={this.toggleModalHandler}/>
 					</div>
 				</Modal>
 				{display}

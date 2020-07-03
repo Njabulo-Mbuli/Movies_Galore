@@ -4,8 +4,6 @@ import '../HomePageCarouselStyling.css';
 
 const NowPlaying= ({nowPlaying,showMovie})=>{
   
-  const handleOnDragStart=e=>e.preventDefault()
-  
     return( 
     <div className="Carousel">
       <h2>Movies Playing Now</h2>

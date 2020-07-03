@@ -11,7 +11,7 @@ const Card = ({movieDetails,showMovie}) =>{
 			<div 
 				className="tc bg-light-green br3 ma2 dib bw2 shadow-5 movieCardContent"
 				style={{backgroundImage:`url(https://image.tmdb.org/t/p/w185/${movieDetails.poster_path}),url(${background_poster})`,
-						overflow:'hidden',backgroundSize:'contain',backgroundRepeat:"no-repeat",backgroundPosition:"center",backgroundSize:"cover"}}>
+						overflow:'hidden',backgroundSize:'contain',backgroundRepeat:"no-repeat",backgroundPosition:"center"}}>
 				<div className="rating">
 					<div>
 			            <svg className="rating__icon"  style={{width:'80', height:'30'}}>

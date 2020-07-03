@@ -16,12 +16,12 @@ const Footer = () =>{
 
 			<section className="footer_block footer_links">
 
-					<a href="https://www.themoviedb.org" target="_blank">
+					<a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer">
 						<div className="tmdb_logo" style={{width:"100%"}}></div>
 					</a>
 					<div className="social_links">
-						<a href="https://www.twitter.com/themoviedb" style={{padding:"1.2em"}} target="_blank"><div className="twitter_logo"></div></a>
-						<a href="https://www.facebook.com/themoviedb" style={{padding:"1.2em"}} target="_blank"><div className="facebook_logo"></div></a>
+						<a href="https://www.twitter.com/themoviedb" style={{padding:"1.2em"}} target="_blank" rel="noopener noreferrer"><div className="twitter_logo"></div></a>
+						<a href="https://www.facebook.com/themoviedb" style={{padding:"1.2em"}} target="_blank" rel="noopener noreferrer"><div className="facebook_logo"></div></a>
 					</div>
 
 			</section>

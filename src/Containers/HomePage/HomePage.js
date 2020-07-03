@@ -59,7 +59,6 @@ class HomePage extends Component{
                     <Jumbatron
                         backdrop={backdrop}
                         showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>
-                    <a id="top"></a>
                     <Popular 
                         popular={this.state.popular_list}
                         showMovie={(movieDetails)=>this.showMovieHandler(movieDetails)}/>

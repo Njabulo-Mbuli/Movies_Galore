@@ -44,7 +44,7 @@ class SearchResults extends Component{
       let getSearchTerm = new URLSearchParams(this.props.location.search);
 
       getSearchTerm=getSearchTerm.get("search");
-      if(getSearchTerm!=this.state.search_Term){
+      if(getSearchTerm!==this.state.search_Term){
         this.retrieveData(getSearchTerm)
         window.scroll({top:0,left:0,behaviour:"smooth"});
       }

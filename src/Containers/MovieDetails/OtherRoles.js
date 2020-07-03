@@ -11,13 +11,10 @@ class OtherRoles extends Component{
 	}
 
 	render(){
-		let actorRoles=[]
-		
-		  const handleOnDragStart=e=>e.preventDefault()
 
-
+		const handleOnDragStart=e=>e.preventDefault()
   
-  let responsive={
+  		let responsive={
                 0:{
                     items: 2
                   },

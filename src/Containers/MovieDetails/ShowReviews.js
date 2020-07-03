@@ -39,15 +39,15 @@ class ShowReviews extends React.Component{
 
 		if(this.state.reviews)
 		if(this.state.reviews.length>0)
-		 display=this.state.reviews.map(result=>{
+		 display=this.state.reviews.map((result,index)=>{
 			
 			return(
-				<div className="single_review">
+				<div key={index} className="single_review">
 					<h3>{result.author}</h3>
 					{result.content.length>700?
 						<React.Fragment>
 						<p>{result.content.slice(0,700)}...</p>
-						<a href={`${result.url}`} target="_blank">Read Full Review</a>
+						<a href={`${result.url}`} target="_blank" rel="noopener noreferrer">Read Full Review</a>
 						</React.Fragment>:
 						<p>{result.content}</p>
 						}

@@ -36,7 +36,6 @@ class ShowTrailer extends React.Component{
 			this.fetchTrailer(nextProps.movie_id);
 		}
 		return nextProps.movie_id!==this.props.movie_id||nextState.trailerKeys!==this.state.trailerKeys;
-
 	}
 
 	render(){
@@ -44,9 +43,9 @@ class ShowTrailer extends React.Component{
 
 		if(this.state.trailerKeys){
 			if(this.state.trailerKeys.length>0){
-				display=<div class="embed-container" >
-							<iframe src={`https://www.youtube.com/embed/${this.state.trailerKeys[0].key}`}
-									frameborder='0' allowfullscreen="">
+				display=<div className="embed-container" >
+							<iframe title="Trailer" src={`https://www.youtube.com/embed/${this.state.trailerKeys[0].key}`}
+									frameBorder='0' allowFullScreen="">
 							</iframe>
 						</div>
 			}
